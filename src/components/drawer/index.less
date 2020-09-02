@@ -1,0 +1,28 @@
+.drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  width: 100%;
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.content {
+  height: 100%;
+  overflow-y: scroll;
+}

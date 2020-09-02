@@ -1,0 +1,45 @@
+.cover {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+// A4纸尺寸为210*297mm  A4 纸减去打印机固定边距
+@height: 297mm- (4.23mm * 2);
+@width: 210mm- (4.23mm * 2);
+.A4 {
+  background-color: #ffffff;
+  height: @height;
+  width: @width;
+  overflow: hidden;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  background: red;
+}
+
+@media print {
+  .A4 {
+    page-break-after: always;
+    margin-bottom: 0;
+    // height: @height - 1mm; //当全幅打印时，多设置1mm导致分页错误
+  }
+}
+
+/*纸张设置为宽1200px 高800px*/
+@page {
+  size: A4;
+  margin: 4.23mm;
+}
+
+// @media print {
+//   body {
+//     -webkit-print-color-adjust: exact;
+//     -moz-print-color-adjust: exact;
+//     -ms-print-color-adjust: exact;
+//     print-color-adjust: exact;
+//   }
+// }
