@@ -3,6 +3,21 @@ import styles from './index.less';
 import Preview, { PreviewRef } from '../preview/index';
 import Drawer from '../drawer/index';
 import { Button, Space } from 'antd';
+import { PageValue, ComponentType, TableType } from '../preview/type';
+
+// 去除不打印数据
+function PageToPrintList(page: PageValue[]) {
+  let arr: PageValue[] = JSON.parse(JSON.stringify(page));
+  let list = arr.filter(e => e.isPrint);
+  return list.map(e => {
+    if (e.type === ComponentType.Table) {
+      let table = e.data as TableType;
+      let data = table.data.filter(e => e.isPrint);
+      return { ...e, data: { ...e.data, data } };
+    }
+    return e;
+  });
+}
 
 interface Props {
 
@@ -22,12 +37,20 @@ export default forwardRef<ref, Props>(({ }: Props, ref) => {
 
   useImperativeHandle(ref, () => ({
     open: (data: any) => {
+      setData({
+        info: data.info,
+        page: PageToPrintList(data.page),
+        foot: data.foot
+      })
       setVisible(true);
-      setData(data)
     },
     print: (data: any) => {
+      setData({
+        info: data.info,
+        page: PageToPrintList(data.page),
+        foot: data.foot
+      })
       setIsPrint(true)
-      setData(data)
     }
   }));
 

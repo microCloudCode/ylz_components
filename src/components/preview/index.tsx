@@ -6,12 +6,11 @@ import React, {
 } from 'react';
 import styles from './index.less';
 import Stencil, { StencilType } from './component/stencil';
-import {  PrintDataModelState } from './type';
+import { PrintDataModelState } from './type';
 import { message } from 'antd';
 import { useReactToPrint } from 'react-to-print';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import { downloadFile } from '../../utils/util';
 
 /**
  * 预览组件
@@ -80,6 +79,7 @@ export default forwardRef<PreviewRef, Props>(
     const handlePrint = useReactToPrint({
       content: () => divRef.current,
       documentTitle: '体检报告',
+      bodyClass: styles.printWindows,
       onBeforePrint: () => {
         console.log('完毕123');
       },

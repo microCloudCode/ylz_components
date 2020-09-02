@@ -1,8 +1,9 @@
 {
   "name": "ylz_components",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "易联众公共组件",
   "main": "dist/index.esm.js",
+  "types":"./dist/index.d.ts",
   "scripts": {
     "dev": "father doc dev",
     "build": "father build",
@@ -26,6 +27,11 @@
     "antd": "^4.6.2",
     "react": "^16.12.0",
     "react-dom": "^16.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microCloudCode/ylz_components.git",
+    "baseUrl": "https://github.com/microCloudCode/ylz_components"
   },
   "files": [
     "dist",
