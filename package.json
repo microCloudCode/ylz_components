@@ -1,6 +1,6 @@
 {
   "name": "ylz_components",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "易联众公共组件",
   "main": "dist/index.esm.js",
   "types":"./dist/index.d.ts",
@@ -8,7 +8,8 @@
     "dev": "father doc dev",
     "build": "father build",
     "build:doc": "father doc build",
-    "deploy": "father doc deploy"
+    "deploy": "father doc deploy",
+    "merge":"git merge dev dist package.json README.md"
   },
   "author": "微云",
   "license": "ISC",
