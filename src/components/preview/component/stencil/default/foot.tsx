@@ -27,6 +27,7 @@ export default ({ Data }: Props) => {
         />
         <img
           src={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm1.png"}
+          // crossOrigin="anonymous"
           className={styles.body_bg_2}
         />
         <div className={styles.body_text}>
