@@ -244,7 +244,7 @@ var Cover = (function (_ref) {
   }, React.createElement("img", {
     src: "http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png",
     className: styles$2.cover_img_bg,
-    crossOrigin: "anonymous",
+    // crossOrigin="anonymous"
     onLoad: function onLoad() {
       return console.log("图片加载完毕");
     }
@@ -661,7 +661,7 @@ var Foot = (function (_ref) {
     className: styles$5.body_bg_1
   }), React.createElement("img", {
     src: "http://xm.gwtj.net:8888/upload/temp/tjbg_fm1.png",
-    crossOrigin: "anonymous",
+    // crossOrigin="anonymous"
     className: styles$5.body_bg_2
   }), React.createElement("div", {
     className: styles$5.body_text
