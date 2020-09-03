@@ -1,8 +1,5 @@
 # 易联众公共组件
 
-
-## 预览
-
 ## 安装
 
 ```yarn add github:microCloudCode/ylz_components#tag```
