@@ -1,5 +1,10 @@
 # Preview 预览组件
 
+
+## 安装
+
+```yarn add github:microCloudCode/ylz_components#tag```
+
 ## 例子
 
 ```javascript
