@@ -28,7 +28,13 @@ export interface InfoDataModelState {
 export interface TableData {
     isPrint: boolean;
     isUnusual: boolean;
-    [others: string]: any;
+    code: string;
+    data: {
+        [others: string]: {
+            val: string;
+            mark: string | null;
+        };
+    };
 }
 export interface TableType {
     title: string | null;
