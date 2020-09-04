@@ -20,14 +20,14 @@ import { Button } from "antd";
 <Playground>
   {() => {
     const reportRef = React.useRef(null);
-    const open=()=>{
-        reportRef.current.open(Data)
-    }
+    const open = () => {
+      reportRef.current.open(Data);
+    };
     return (
-        <div>
-            <Button onClick={open} >点击</Button>
-            <Report ref={reportRef} />
-        </div>
-    )
+      <div>
+        <Button onClick={open}>点击</Button>
+        <Report ref={reportRef} />
+      </div>
+    );
   }}
 </Playground>

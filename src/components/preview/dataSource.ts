@@ -36,24 +36,57 @@ let test1 = Array(10).fill({
         //数据数组
         isPrint: true, //是否打印
         isUnusual: true,
-        name: '尿酸',
-        res: '2.4 ↓',
-        value: '200~300',
-        ceshi: '123',
+        data: {
+          name: {
+            val: "尿酸",
+          },
+          res: {
+            val: '2.4',
+          },
+          value: {
+            val: '200~300',
+          },
+          ceshi: {
+            val: '123',
+          },
+        }
       },
       {
         isPrint: true, //是否打印
-        name: '尿酸',
-        res: '411',
-        value: '200~300',
-        ceshi: '123',
+        isUnusual: true,
+        data: {
+          name: {
+            val: "尿酸",
+          },
+          res: {
+            val: '2.4',
+            mark:"↓"
+          },
+          value: {
+            val: '200~300',
+          },
+          ceshi: {
+            val: '123',
+          },
+        }
       },
       {
         isPrint: true, //是否打印
-        name: '尿酸',
-        res: '411',
-        ceshi: '123',
-        value: '200~300',
+        isUnusual: true,
+        data: {
+          name: {
+            val: "尿酸",
+          },
+          res: {
+            val: '2.4',
+          },
+          value: {
+            val: '200~300',
+          },
+          ceshi: {
+            val: '123',
+          },
+        }
       },
     ],
     author: '李怕怕',

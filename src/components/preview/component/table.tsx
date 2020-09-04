@@ -30,9 +30,13 @@ export default ({ columns, dataSource }: Props) => {
             key={res.dataIndex}
             className={`${styles.body_row_item} ${
               i === 0 ? styles.body_row_item_title : styles.body_row_item_line
-            }`}
+              }`}
           >
-            <span>{e[res.dataIndex]}</span>
+            <span>{e.data[res.dataIndex].val}</span>
+            {e.data[res.dataIndex].mark &&
+              <span className={styles.body_row_item_mark}>
+                {e.data[res.dataIndex].mark}
+              </span>}
           </div>
         ))}
         {e.isUnusual && <div className={styles.body_row_star}>*</div>}
