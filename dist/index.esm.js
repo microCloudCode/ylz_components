@@ -244,7 +244,7 @@ var Cover = (function (_ref) {
   }, React.createElement("img", {
     src: "http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png",
     className: styles$2.cover_img_bg,
-    // crossOrigin="anonymous"
+    crossOrigin: "anonymous",
     onLoad: function onLoad() {
       return console.log("图片加载完毕");
     }

@@ -13,13 +13,21 @@ import { Playground } from "docz";
 
 ## 例子
 
-```javascript
-import { Report } from 'ylz_components';
+import Report from "../report/index.tsx";
+import Data from "./dataSource.ts";
+import { Button } from "antd";
 
-const reportRef = useRef(null)
-<Report ref={reportRef} />
-
-reportRef.current.open(data)//预览
-reportRef.current.print(data)//打印
-
-```
+<Playground>
+  {() => {
+    const reportRef = React.useRef(null);
+    const open=()=>{
+        reportRef.current.open(Data)
+    }
+    return (
+        <div>
+            <Button onClick={open} >点击</Button>
+            <Report ref={reportRef} />
+        </div>
+    )
+  }}
+</Playground>
