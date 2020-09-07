@@ -564,11 +564,14 @@ var Page = (function (_ref) {
       }
 
       if (res.type === ComponentType.Img) {
+        var _data$isRotate;
+
         //图片
         var _data = res.data;
+        var isRotate = (_data$isRotate = _data.isRotate) !== null && _data$isRotate !== void 0 ? _data$isRotate : true;
         return React.createElement("img", {
           src: _data.src,
-          className: "".concat(styles$3.page_content_img, " ").concat(_data.isRotate ? styles$3.page_content_img_rotate : ""),
+          className: "".concat(styles$3.page_content_img, " ").concat(isRotate ? styles$3.page_content_img_rotate : ""),
           key: i
         });
       }
