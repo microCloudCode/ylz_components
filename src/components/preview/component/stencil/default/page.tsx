@@ -99,10 +99,11 @@ export default ({ Data, readyPromise }: Props) => {
       if (res.type === ComponentType.Img) {
         //图片
         let data = res.data as ImgType;
+        let isRotate = data.isRotate ?? true
         return (
           <img
             src={data.src}
-            className={`${styles.page_content_img} ${data.isRotate ? styles.page_content_img_rotate : ""}`}
+            className={`${styles.page_content_img} ${isRotate ? styles.page_content_img_rotate : ""}`}
             key={i} />
         );
       }
