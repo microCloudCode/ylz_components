@@ -58,6 +58,7 @@ export interface TableType {
 // 图片
 export interface ImgType {
   src: string;
+  isRotate: boolean,//是否旋转
 }
 
 // 报告

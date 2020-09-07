@@ -60,7 +60,7 @@ let test1 = Array(10).fill({
           },
           res: {
             val: '2.4',
-            mark:"↓"
+            mark: "↓"
           },
           value: {
             val: '200~300',
@@ -99,6 +99,7 @@ test1.push({
   data: {
     src:
       'https://alipic.lanhuapp.com/psccbcfbbce1189751-7dcc-4355-af9c-88e2d5a347ef',
+    isRotate: true
   },
 });
 test1.push({

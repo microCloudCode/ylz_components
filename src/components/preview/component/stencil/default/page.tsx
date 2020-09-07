@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './page.less';
 import tableStyles from '../../table.less';
 import DefaultStyles from './default.less';
-import { PrintDataModelState, ComponentType,PageValue, TableType, ImgType, ReportType } from '../../../type';
+import { PrintDataModelState, ComponentType, PageValue, TableType, ImgType, ReportType } from '../../../type';
 import Table from '../../table';
 import { usePageList } from '../hook';
 import Report from './report';
@@ -100,7 +100,10 @@ export default ({ Data, readyPromise }: Props) => {
         //图片
         let data = res.data as ImgType;
         return (
-          <img src={data.src} className={styles.page_content_img} key={i} />
+          <img
+            src={data.src}
+            className={`${styles.page_content_img} ${data.isRotate ? styles.page_content_img_rotate : ""}`}
+            key={i} />
         );
       }
       if (res.type === ComponentType.Report) {
