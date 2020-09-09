@@ -99,7 +99,7 @@ test1.push({
   data: {
     src:
       'https://alipic.lanhuapp.com/psccbcfbbce1189751-7dcc-4355-af9c-88e2d5a347ef',
-    isRotate: true
+    isRotate: false
   },
 });
 test1.push({

@@ -6,6 +6,7 @@ import { PrintDataModelState, ComponentType, PageValue, TableType, ImgType, Repo
 import Table from '../../table';
 import { usePageList } from '../hook';
 import Report from './report';
+import RotateImg from '../../../../rotateImg';
 import Barcode from 'react-barcode';
 
 interface Props {
@@ -101,10 +102,7 @@ export default ({ Data, readyPromise }: Props) => {
         let data = res.data as ImgType;
         let isRotate = data.isRotate ?? true
         return (
-          <img
-            src={data.src}
-            className={`${styles.page_content_img} ${isRotate ? styles.page_content_img_rotate : ""}`}
-            key={i} />
+          <RotateImg src={data.src} key={i} imgClass={styles.page_content_img} rot={isRotate ? 90 : 0} />
         );
       }
       if (res.type === ComponentType.Report) {
