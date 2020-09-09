@@ -46,6 +46,7 @@ export interface TableType {
     author: string | null;
 }
 export interface ImgType {
+    title: string;
     src: string;
     isRotate: boolean;
 }
