@@ -38,10 +38,9 @@ export default ({ Data }: Props) => {
       {/*  */}
       <div className={styles.cover_img}>
         <img
+          // crossOrigin="anonymous"
           src={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
           className={styles.cover_img_bg}
-          // crossOrigin="anonymous"
-          onLoad={()=>console.log("图片加载完毕")}
         />
         <div className={styles.cover_img_tips}>
           <span className={styles.cover_img_tips_text}>

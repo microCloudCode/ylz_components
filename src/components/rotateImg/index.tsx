@@ -1,19 +1,63 @@
-import React, { useEffect, useState, useRef } from 'react';
-import styles from './index.less';
+import React, { useEffect, useState } from 'react';
 
-const rotate = function (canvas: HTMLCanvasElement, img: HTMLImageElement, rot = 0) {
+
+/**
+ * 旋转图片
+ */
+interface Props {
+  rot: number,
+  src: string,
+  imgClass: string
+}
+
+export default ({ rot, src, imgClass }: Props) => {
+  const [url, setUrl] = useState("")
+
+  useEffect(() => {
+    getSrc(src, rot).then(e => setUrl(e))
+  }, [rot, src])
+
+  return (
+    <>
+      <img src={url} className={imgClass} />
+    </>
+  );
+}
+
+// 获取src
+const getSrc = (url: string, rot: number): Promise<string> => {
+  return new Promise((res, rej) => {
+    if (rot === 0) {//无需旋转，直接返回原url
+      return res(url)
+    }
+    let img = new Image();
+    img.setAttribute('crossOrigin', 'anonymous');
+    img.src = url;
+    img.onload = function () {//图片加载完，再draw 和 toDataURL
+      rotate(img, rot, res)
+    };
+    img.onerror = function () {
+      rej()
+    }
+  })
+}
+
+
+// 旋转
+const rotate = function (img: HTMLImageElement, rot = 0, res: (value?: string) => void) {
+  const canvas = document.createElement("canvas")
   //获取图片的高宽
-  var w = img.width;
-  var h = img.height;
+  let w = img.width;
+  let h = img.height;
 
-  var rotation = Math.PI * rot / 180;
-  var c = Math.round(Math.cos(rotation) * 1000) / 1000;
-  var s = Math.round(Math.sin(rotation) * 1000) / 1000;
+  let rotation = Math.PI * rot / 180;
+  let c = Math.round(Math.cos(rotation) * 1000) / 1000;
+  let s = Math.round(Math.sin(rotation) * 1000) / 1000;
   //旋转后canvas标签的大小
   canvas.height = Math.abs(c * h) + Math.abs(s * w);
   canvas.width = Math.abs(c * w) + Math.abs(s * h);
   //绘图开始
-  var context = canvas.getContext("2d");
+  let context = canvas.getContext("2d");
   if (context === null) { return }
   context.save();
   //改变中心点
@@ -26,36 +70,13 @@ const rotate = function (canvas: HTMLCanvasElement, img: HTMLImageElement, rot =
   } else {
     context.translate(0, -s * w);
   }
-  //旋转90°
+  //旋转
   context.rotate(rotation);
-  //绘制
+  //绘制图片
   context.drawImage(img, 0, 0, w, h);
-  context.restore();
-  img.style.display = "none";
+  //获取Blob对象
+  canvas.toBlob((blob) => {
+    res(URL.createObjectURL(blob))
+  })
 }
 
-/**
- * 旋转图片
- */
-interface Props {
-  rot: number,
-  src: string,
-  imgClass: string
-}
-export default ({ rot, src, imgClass }: Props) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    if (canvasRef.current && imgRef.current) {
-      rotate(canvasRef.current, imgRef.current, rot)
-    }
-  }, [rot])
-
-  return (
-    <div className={imgClass}>
-      <canvas ref={canvasRef}></canvas>
-      <img src={src} ref={imgRef} className={imgClass} />
-    </div>
-  );
-}
