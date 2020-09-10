@@ -242,12 +242,9 @@ var Cover = (function (_ref) {
   }, info), React.createElement("div", {
     className: styles$2.cover_img
   }, React.createElement("img", {
-    src: "http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png",
-    className: styles$2.cover_img_bg,
     // crossOrigin="anonymous"
-    onLoad: function onLoad() {
-      return console.log("图片加载完毕");
-    }
+    src: "http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png",
+    className: styles$2.cover_img_bg
   }), React.createElement("div", {
     className: styles$2.cover_img_tips
   }, React.createElement("span", {
@@ -474,9 +471,54 @@ var Report = (function (_ref) {
   }, foot));
 });
 
-var rotate = function rotate(canvas, img) {
-  var rot = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-  //获取图片的高宽
+var RotateImg = (function (_ref) {
+  var rot = _ref.rot,
+      src = _ref.src,
+      imgClass = _ref.imgClass;
+
+  var _useState = useState(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      url = _useState2[0],
+      setUrl = _useState2[1];
+
+  useEffect(function () {
+    getSrc(src, rot).then(function (e) {
+      return setUrl(e);
+    });
+  }, [rot, src]);
+  return React.createElement(React.Fragment, null, React.createElement("img", {
+    src: url,
+    className: imgClass
+  }));
+}); // 获取src
+
+var getSrc = function getSrc(url, rot) {
+  return new Promise(function (res, rej) {
+    if (rot === 0) {
+      //无需旋转，直接返回原url
+      return res(url);
+    }
+
+    var img = new Image();
+    img.setAttribute('crossOrigin', 'anonymous');
+    img.src = url;
+
+    img.onload = function () {
+      rotate(img, rot, res);
+    };
+
+    img.onerror = function () {
+      rej();
+    };
+  });
+}; // 旋转
+
+
+var rotate = function rotate(img) {
+  var rot = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var res = arguments.length > 2 ? arguments[2] : undefined;
+  var canvas = document.createElement("canvas"); //获取图片的高宽
+
   var w = img.width;
   var h = img.height;
   var rotation = Math.PI * rot / 180;
@@ -502,37 +544,17 @@ var rotate = function rotate(canvas, img) {
     context.translate(-c * w, canvas.height);
   } else {
     context.translate(0, -s * w);
-  } //旋转90°
+  } //旋转
 
 
-  context.rotate(rotation); //绘制
+  context.rotate(rotation); //绘制图片
 
-  context.drawImage(img, 0, 0, w, h);
-  context.restore();
-  img.style.display = "none";
+  context.drawImage(img, 0, 0, w, h); //获取Blob对象
+
+  canvas.toBlob(function (blob) {
+    res(URL.createObjectURL(blob));
+  });
 };
-
-var RotateImg = (function (_ref) {
-  var rot = _ref.rot,
-      src = _ref.src,
-      imgClass = _ref.imgClass;
-  var canvasRef = useRef(null);
-  var imgRef = useRef(null);
-  useEffect(function () {
-    if (canvasRef.current && imgRef.current) {
-      rotate(canvasRef.current, imgRef.current, rot);
-    }
-  }, [rot]);
-  return React.createElement("div", {
-    className: imgClass
-  }, React.createElement("canvas", {
-    ref: canvasRef
-  }), React.createElement("img", {
-    src: src,
-    ref: imgRef,
-    className: imgClass
-  }));
-});
 
 /**
  * 默认的渲染模版
