@@ -50,7 +50,7 @@ export default ({ data, info }: Props) => {
     );
   });
   return (
-    <>
+    <div className={styles.body}>
       {/* 标题 */}
       <div className={styles.title}>{data.title}</div>
       {/* 报告信息 */}
@@ -69,6 +69,6 @@ export default ({ data, info }: Props) => {
       </div>
       {/* 底部 */}
       <div className={styles.foot}>{foot}</div>
-    </>
+    </div>
   );
 };

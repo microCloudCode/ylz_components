@@ -97,8 +97,7 @@ test1.push({
   isPrint: true, //是否打印
   isNewPage: true,
   data: {
-    src:
-      'https://alipic.lanhuapp.com/psccbcfbbce1189751-7dcc-4355-af9c-88e2d5a347ef',
+    src: 'https://alipic.lanhuapp.com/psccbcfbbce1189751-7dcc-4355-af9c-88e2d5a347ef',
     isRotate: true
   },
 });

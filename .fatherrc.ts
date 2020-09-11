@@ -5,4 +5,7 @@ export default {
   esm: 'rollup',
   cssModules: true,
   extraRollupPlugins: [],
+  doc: {
+    host: "0.0.0.0"
+  }
 }

@@ -28,8 +28,7 @@ export default ({ columns, dataSource }: Props) => {
         {columns.map((res, i) => (
           <div
             key={res.dataIndex}
-            className={`${styles.body_row_item} ${
-              i === 0 ? styles.body_row_item_title : styles.body_row_item_line
+            className={`${styles.body_row_item} ${i === 0 ? styles.body_row_item_title : styles.body_row_item_line
               }`}
           >
             <span>{e.data[res.dataIndex].val}</span>
