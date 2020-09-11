@@ -1,5 +1,4 @@
 import { PosType } from './type';
-import test from '../../assets/test.png';
 
 export enum ComponentType {
   Table = 'table',
@@ -98,19 +97,15 @@ test1.push({
   type: ComponentType.Img,
   isPrint: true, //是否打印
   isNewPage: true,
+  isHideHeader:true,
   data: {
-    src: test,
+    src: "http://localhost/resources/test.png",
     isRotate: true,
     pos: [{
       type: PosType.Text,
-      data: "123123",
-      x: 483,
-      y: 407
-    },{
-      type: PosType.Img,
-      data: "https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg",
-      x: 0,
-      y: 0
+      data: "1：心电图",
+      x: 89,
+      y: 55.5
     }]
   },
 });
@@ -132,8 +127,8 @@ test1.push({
     ],
     basicInfo: ['title'], //基本信息
     img: [
-      'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
-      'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
+      // 'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
+      // 'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
     ],
     description:
       '超声所见 阿克苏等哈看手机等哈看介绍打算结婚的卡说的话啊看世界很多卡上的', //描述

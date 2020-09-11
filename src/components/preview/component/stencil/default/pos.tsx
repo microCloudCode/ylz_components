@@ -16,8 +16,8 @@ export default ({ data }: Props) => {
 
   const arr = data.map((e, i) => {
     let pos = {
-      left: `${e.x}pt`,
-      top: `${e.y}pt`,
+      left: `${e.x}%`,
+      top: `${e.y}%`,
     }
     if (e.type === PosType.Text) {
       return <pre style={pos} key={i} className={`${styles.item} ${styles.text}`}>{e.data}</pre>

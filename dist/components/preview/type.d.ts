@@ -3,6 +3,10 @@ export declare enum ComponentType {
     Img = "img",
     Report = "report"
 }
+export declare enum PosType {
+    Text = "text",
+    Img = "img"
+}
 /**
  * 数据源结构
  */
@@ -49,6 +53,12 @@ export interface ImgType {
     title: string;
     src: string;
     isRotate: boolean;
+    pos: {
+        type: PosType;
+        data: string;
+        x: number;
+        y: number;
+    }[];
 }
 export interface ReportType {
     title: string;
@@ -70,6 +80,7 @@ export interface PageValue {
     type: ComponentType;
     isPrint: boolean;
     isNewPage: boolean;
+    isHideHeader: boolean;
     data: TableType | ImgType | ReportType;
 }
 export interface FootDataModelState {

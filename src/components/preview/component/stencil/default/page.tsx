@@ -48,7 +48,7 @@ export default ({ Data, readyPromise }: Props) => {
         let data = res.data as ImgType;
         let isRotate = data.isRotate ?? true
         return (
-          <div className={styles.page_content_img} key={i}>
+          <div className={styles.page_content_img} key={i} >
             <RotateImg src={data.src} rot={isRotate ? 90 : 0} />
             <Pos data={data.pos} />
           </div>
@@ -68,9 +68,9 @@ export default ({ Data, readyPromise }: Props) => {
     return (
       <div className={`${DefaultStyles.A4}`} key={index}>
         {/* 页眉 */}
-        {  header(Data)}
+        {e[0].isHideHeader !== true && header(Data)}
         {/* 分割线 */}
-        <div className={styles.br}></div>
+        {e[0].isHideHeader !== true && <div className={styles.br}></div>}
         {/* 详细信息展示 */}
         {index === 0 && detailsInfo(Data)}
         {/* 内容 */}

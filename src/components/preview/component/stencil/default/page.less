@@ -108,6 +108,17 @@
   .page_content_img {
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    background: #666;
+    overflow: hidden;
+  }
+}
+
+// 解决图片不显示
+@media print {
+  .page_content_img {
+    height: auto !important;
   }
 }
 

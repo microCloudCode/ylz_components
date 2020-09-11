@@ -96,6 +96,7 @@ export interface PageValue {
   type: ComponentType; //组件类型
   isPrint: boolean; //是否打印
   isNewPage: boolean; //控制是否新起一页 false则为算法控制页分布
+  isHideHeader: boolean;//是否关闭页眉
   data: TableType | ImgType | ReportType;
 }
 
