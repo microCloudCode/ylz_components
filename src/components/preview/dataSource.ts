@@ -1,3 +1,5 @@
+import { PosType } from './type';
+import test from '../../assets/test.png';
 
 export enum ComponentType {
   Table = 'table',
@@ -97,8 +99,19 @@ test1.push({
   isPrint: true, //是否打印
   isNewPage: true,
   data: {
-    src: 'https://alipic.lanhuapp.com/psccbcfbbce1189751-7dcc-4355-af9c-88e2d5a347ef',
-    isRotate: true
+    src: test,
+    isRotate: true,
+    pos: [{
+      type: PosType.Text,
+      data: "123123",
+      x: 483,
+      y: 407
+    },{
+      type: PosType.Img,
+      data: "https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg",
+      x: 0,
+      y: 0
+    }]
   },
 });
 test1.push({

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from './index.less';
 
 
 /**
@@ -7,10 +8,9 @@ import React, { useEffect, useState } from 'react';
 interface Props {
   rot: number,
   src: string,
-  imgClass: string
 }
 
-export default ({ rot, src, imgClass }: Props) => {
+export default ({ rot, src }: Props) => {
   const [url, setUrl] = useState("")
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default ({ rot, src, imgClass }: Props) => {
 
   return (
     <>
-      <img src={url} className={imgClass} />
+      <img src={url} className={styles.img} />
     </>
   );
 }

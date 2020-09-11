@@ -4,6 +4,11 @@ export enum ComponentType {
   Report = 'report', //报告
 }
 
+export enum PosType {
+  Text = 'text',
+  Img = 'img',
+}
+
 /**
  * 数据源结构
  */
@@ -57,9 +62,15 @@ export interface TableType {
 
 // 图片
 export interface ImgType {
-  title:string;
+  title: string;
   src: string;
   isRotate: boolean,//是否旋转
+  pos: {
+    type: PosType,
+    data: string,
+    x: number,
+    y: number
+  }[]
 }
 
 // 报告
