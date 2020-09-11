@@ -5,7 +5,6 @@
 interface Props {
     rot: number;
     src: string;
-    imgClass: string;
 }
-declare const _default: ({ rot, src, imgClass }: Props) => JSX.Element;
+declare const _default: ({ rot, src }: Props) => JSX.Element;
 export default _default;
