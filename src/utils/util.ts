@@ -1,6 +1,6 @@
 export function downloadFile(content: string, fileName: string) {
   //下载base64图片
-  var base64ToBlob = function(code: string) {
+  var base64ToBlob = function (code: string) {
     let parts = code.split(';base64,');
     let contentType = parts[0].split(':')[1];
     let raw = window.atob(parts[1]);
@@ -20,4 +20,18 @@ export function downloadFile(content: string, fileName: string) {
   aLink.download = fileName;
   aLink.href = URL.createObjectURL(blob);
   aLink.click();
+}
+
+export function createPromise() {
+  let rej = null;
+  let res = null
+  let obj = new Promise((r, j) => {
+    res = r;
+    rej = j;
+  })
+  return {
+    promise: obj,
+    res: (res as unknown) as (value?: unknown) => void,
+    rej: (rej as unknown) as (reason?: any) => void,
+  };
 }

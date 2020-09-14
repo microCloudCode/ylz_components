@@ -45,7 +45,7 @@ export function usePageList(
     content: Element | undefined;
     list: Element[];
   },
-  readyPromise: {
+  calculatedPromise: {
     res: (value?: unknown) => void;
     rej: (reason?: any) => void;
   },
@@ -59,7 +59,7 @@ export function usePageList(
 
   useEffect(() => {
     if (pageList.length === 0) {
-      readyPromise.res('绘制完毕');
+      calculatedPromise.res('绘制完毕');
       return;
     }
     let arr: PageValue[][] = JSON.parse(JSON.stringify(pageList));
@@ -80,7 +80,7 @@ export function usePageList(
 
     // 坐标已到达极限
     if (El.current.index >= Data.page.length - 1) {
-      readyPromise.res('绘制完毕');
+      calculatedPromise.res('绘制完毕');
       return;
     }
 

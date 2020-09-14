@@ -11,6 +11,7 @@ import { message } from 'antd';
 import { useReactToPrint } from 'react-to-print';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
+import { usePromise } from './hook';
 
 /**
  * 预览组件
@@ -44,32 +45,26 @@ async function html2Base64(html: HTMLElement) {
 export default forwardRef<PreviewRef, Props>(
   ({ hideRender, data }: Props, ref) => {
     const divRef = useRef<HTMLDivElement>(null);
-
-    const readyPromise = useMemo(() => {
-      //模版计算，渲染完毕的标识
-      let res = null;
-      let rej = null;
-      let promise = new Promise((resolve, reject) => {
-        res = resolve;
-        rej = reject;
-      });
-      return {
-        promise,
-        res: (res as unknown) as (value?: unknown) => void,
-        rej: (rej as unknown) as (reason?: any) => void,
-      };
-    }, []);
+    //页面布局计算完毕promise
+    const pagePromise = usePromise([]);
+    // 即将打印promise
+    const beforePrintPromise = usePromise([]);
+    const onLoad = () => {
+      console.log("真实dom结构计算完毕")
+      pagePromise.res()
+    }
 
     useImperativeHandle(ref, () => ({
       print: async () => {
         let hide = message.loading('绘制中...', 0);
-        await readyPromise.promise;
+        await pagePromise.promise;
         handlePrint && (await handlePrint());
+        await beforePrintPromise.promise;
         hide();
       },
       pdf: async () => {
         let hide = message.loading('生成中...', 0);
-        await readyPromise.promise;
+        await pagePromise.promise;
         await handlePdf();
         hide();
       },
@@ -81,7 +76,8 @@ export default forwardRef<PreviewRef, Props>(
       documentTitle: '体检报告',
       bodyClass: styles.printWindows,
       onBeforePrint: () => {
-        console.log('完毕123');
+        console.log('即将打印');
+        beforePrintPromise.res()
       },
     });
 
@@ -114,10 +110,7 @@ export default forwardRef<PreviewRef, Props>(
         <Stencil
           Data={data}
           type={StencilType.Default}
-          readyPromise={{
-            res: readyPromise.res,
-            rej: readyPromise.rej,
-          }}
+          onLoad={onLoad}
         />
       </div>
     );

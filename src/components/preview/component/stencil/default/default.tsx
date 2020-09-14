@@ -7,16 +7,17 @@ import Foot from './foot';
 
 interface Props {
   Data: PrintDataModelState;
-  readyPromise: {
+  calculatedPromise: {
     res: (value?: unknown) => void;
     rej: (reason?: any) => void;
   };
+  pushLoadItem: (e: any) => any
 }
 
 /**
  * 默认的渲染模版
  */
-export default ({ Data, readyPromise }: Props) => {
+export default ({ Data, calculatedPromise, pushLoadItem }: Props) => {
   return (
     <>
       {/* 封面 */}
@@ -24,7 +25,7 @@ export default ({ Data, readyPromise }: Props) => {
         <Cover Data={Data} />
       </div>
       {/* 页内容 */}
-      <Page Data={Data} readyPromise={readyPromise} />
+      <Page Data={Data} calculatedPromise={calculatedPromise} pushLoadItem={pushLoadItem} />
       {/* 尾页 */}
       <div className={`${styles.A4}`}>
         <Foot Data={Data.foot} />

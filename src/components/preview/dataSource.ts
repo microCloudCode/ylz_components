@@ -127,8 +127,8 @@ test1.push({
     ],
     basicInfo: ['title'], //基本信息
     img: [
-      // 'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
-      // 'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
+      'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
+      'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
     ],
     description:
       '超声所见 阿克苏等哈看手机等哈看介绍打算结婚的卡说的话啊看世界很多卡上的', //描述

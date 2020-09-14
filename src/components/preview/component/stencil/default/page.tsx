@@ -9,19 +9,21 @@ import Report from './report';
 import RotateImg from '../../../../rotateImg';
 import Pos from './pos';
 import Barcode from 'react-barcode';
+import { createPromise } from '../../../../../utils/util';
 
 interface Props {
   Data: PrintDataModelState;
-  readyPromise: {
+  calculatedPromise: {
     res: (value?: unknown) => void;
     rej: (reason?: any) => void;
   };
+  pushLoadItem: (e: any) => any
 }
 
 /**
  * 默认的渲染模版
  */
-export default ({ Data, readyPromise }: Props) => {
+export default ({ Data, calculatedPromise, pushLoadItem }: Props) => {
   const divEl = useRef<HTMLDivElement>(null);
   const getHeight = () => divEl.current?.clientHeight;
   const getHtmlList = (index: number) => {
@@ -33,7 +35,7 @@ export default ({ Data, readyPromise }: Props) => {
       list: list ? [...list] : [],//具体项
     }
   };
-  const [pageList] = usePageList(Data, getHeight, getHtmlList, readyPromise);
+  const [pageList] = usePageList(Data, getHeight, getHtmlList, calculatedPromise);//计算页面元素分布
 
   // 项目
   const pageItem = (e: PageValue[]) => {
@@ -46,10 +48,16 @@ export default ({ Data, readyPromise }: Props) => {
       if (res.type === ComponentType.Img) {
         //图片
         let data = res.data as ImgType;
-        let isRotate = data.isRotate ?? true
+        let isRotate = data.isRotate ?? true;
+        let promise = createPromise()
         return (
           <div className={styles.page_content_img} key={i} >
-            <RotateImg src={data.src} rot={isRotate ? 90 : 0} />
+            <RotateImg
+              src={data.src}
+              rot={isRotate ? 90 : 0}
+              onError={() => promise.rej()}
+              onLoad={() => promise.res()}
+              onStart={() => pushLoadItem(promise.promise)} />
             <Pos data={data.pos} />
           </div>
         );

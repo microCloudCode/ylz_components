@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { usePromise } from '../preview/hook';
 import styles from './index.less';
 
 
@@ -8,13 +9,20 @@ import styles from './index.less';
 interface Props {
   rot: number,
   src: string,
+  onStart: () => any,
+  onLoad: () => any,
+  onError: () => any
 }
 
-export default ({ rot, src }: Props) => {
+export default ({ rot, src, onLoad, onError, onStart }: Props) => {
   const [url, setUrl] = useState("")
 
   useEffect(() => {
-    getSrc(src, rot).then(e => setUrl(e))
+    onStart()
+    getSrc(src, rot).then(e => {
+      setUrl(e);
+      onLoad()
+    }).catch(e => onError())
   }, [rot, src])
 
   return (
@@ -27,6 +35,7 @@ export default ({ rot, src }: Props) => {
 // 获取src
 const getSrc = (url: string, rot: number): Promise<string> => {
   return new Promise((res, rej) => {
+    console.log("开始")
     if (rot === 0) {//无需旋转，直接返回原url
       return res(url)
     }
