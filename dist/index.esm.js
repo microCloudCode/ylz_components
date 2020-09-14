@@ -578,7 +578,8 @@ var styles$6 = {"item":"pos_item__3R7Pr","text":"pos_text__1Kwpz","img":"pos_img
 styleInject(css$7);
 
 var Pos = (function (_ref) {
-  var data = _ref.data;
+  var _ref$data = _ref.data,
+      data = _ref$data === void 0 ? [] : _ref$data;
   var arr = data.map(function (e, i) {
     var pos = {
       left: "".concat(e.x, "%"),
