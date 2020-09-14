@@ -7,13 +7,15 @@ interface Props {
   type?: string;
   Data: PrintDataModelState;
   onLoad: () => void;//dom结构计算完毕
+  coverUrl: string;
+  footUrl: string
 }
 
 export enum StencilType {
   Default = 'default',
 }
 
-export default ({ type = StencilType.Default, Data, onLoad }: Props) => {
+export default ({ type = StencilType.Default, Data, onLoad, coverUrl, footUrl }: Props) => {
   const { current } = useRef<{ loadList: any[] }>({
     loadList: [],//等待计算项
   })
@@ -31,7 +33,9 @@ export default ({ type = StencilType.Default, Data, onLoad }: Props) => {
 
   switch (type) {
     case StencilType.Default:
-      return <Default Data={Data} calculatedPromise={calculatedPromise} pushLoadItem={pushLoadItem} />;
+      return <Default Data={Data} calculatedPromise={calculatedPromise} pushLoadItem={pushLoadItem}
+        coverUrl={coverUrl}
+        footUrl={footUrl} />;
     default:
       return null;
   }

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { usePromise } from '../preview/hook';
 import styles from './index.less';
-
 
 /**
  * 旋转图片
@@ -35,7 +33,6 @@ export default ({ rot, src, onLoad, onError, onStart }: Props) => {
 // 获取src
 const getSrc = (url: string, rot: number): Promise<string> => {
   return new Promise((res, rej) => {
-    console.log("开始")
     if (rot === 0) {//无需旋转，直接返回原url
       return res(url)
     }

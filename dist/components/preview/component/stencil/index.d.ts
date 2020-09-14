@@ -4,9 +4,11 @@ interface Props {
     type?: string;
     Data: PrintDataModelState;
     onLoad: () => void;
+    coverUrl: string;
+    footUrl: string;
 }
 export declare enum StencilType {
     Default = "default"
 }
-declare const _default: ({ type, Data, onLoad }: Props) => JSX.Element | null;
+declare const _default: ({ type, Data, onLoad, coverUrl, footUrl }: Props) => JSX.Element | null;
 export default _default;

@@ -20,7 +20,8 @@ function PageToPrintList(page: PageValue[]) {
 }
 
 interface Props {
-
+  coverUrl: string;
+  footUrl: string;
 }
 
 interface ref {
@@ -28,7 +29,7 @@ interface ref {
   print: (data: any) => any;
 }
 
-export default forwardRef<ref, Props>(({ }: Props, ref) => {
+export default forwardRef<ref, Props>(({ coverUrl, footUrl }: Props, ref) => {
   const [visible, setVisible] = useState(false);
   const [isPrint, setIsPrint] = useState(false);
   const [data, setData] = useState<any>(null);
@@ -78,11 +79,11 @@ export default forwardRef<ref, Props>(({ }: Props, ref) => {
           </Space>
         }
       >
-        <Preview ref={previewRef} hideRender={false} data={data} />
+        <Preview ref={previewRef} hideRender={false} data={data} coverUrl={coverUrl} footUrl={footUrl} />
       </Drawer>}
       {/* 打印 */}
       {isPrint && (
-        <Preview ref={hidePreviewRef} data={data} hideRender={isPrint} />
+        <Preview ref={hidePreviewRef} data={data} hideRender={isPrint} coverUrl={coverUrl} footUrl={footUrl} />
       )}
     </div>
   );

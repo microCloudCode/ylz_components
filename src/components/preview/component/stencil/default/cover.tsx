@@ -4,12 +4,13 @@ import { PrintDataModelState } from '../../../type';
 
 interface Props {
   Data: PrintDataModelState;
+  coverUrl: string
 }
 
 /**
  * 封面
  */
-export default ({ Data }: Props) => {
+export default ({ Data, coverUrl }: Props) => {
   const info = Data.info.cover.map(e => {
     return (
       <div key={e}>
@@ -39,7 +40,8 @@ export default ({ Data }: Props) => {
       <div className={styles.cover_img}>
         <img
           // crossOrigin="anonymous"
-          src={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
+          // src={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
+          src={coverUrl}
           className={styles.cover_img_bg}
         />
         <div className={styles.cover_img_tips}>

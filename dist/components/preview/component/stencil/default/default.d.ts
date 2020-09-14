@@ -7,8 +7,10 @@ interface Props {
         rej: (reason?: any) => void;
     };
     pushLoadItem: (e: any) => any;
+    coverUrl: string;
+    footUrl: string;
 }
-declare const _default: ({ Data, calculatedPromise, pushLoadItem }: Props) => JSX.Element;
+declare const _default: ({ Data, calculatedPromise, pushLoadItem, coverUrl, footUrl }: Props) => JSX.Element;
 /**
  * 默认的渲染模版
  */

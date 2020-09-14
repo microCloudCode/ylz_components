@@ -24,6 +24,8 @@ export interface PreviewRef {
 interface Props {
   hideRender: boolean; //隐藏渲染
   data: PrintDataModelState;
+  coverUrl: string;
+  footUrl: string
 }
 
 /**
@@ -43,7 +45,7 @@ async function html2Base64(html: HTMLElement) {
 }
 
 export default forwardRef<PreviewRef, Props>(
-  ({ hideRender, data }: Props, ref) => {
+  ({ hideRender, data, coverUrl, footUrl }: Props, ref) => {
     const divRef = useRef<HTMLDivElement>(null);
     //页面布局计算完毕promise
     const pagePromise = usePromise([]);
@@ -111,6 +113,8 @@ export default forwardRef<PreviewRef, Props>(
           Data={data}
           type={StencilType.Default}
           onLoad={onLoad}
+          coverUrl={coverUrl}
+          footUrl={footUrl}
         />
       </div>
     );

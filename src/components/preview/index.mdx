@@ -24,9 +24,11 @@ import { Button } from "antd";
       reportRef.current.open(Data);
     };
     return (
-      <div>
+      <div>  
         <Button onClick={open}>点击</Button>
-        <Report ref={reportRef} />
+        <Report ref={reportRef}
+         coverUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
+         footUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm1.png"}   />
       </div>
     );
   }}
