@@ -3,7 +3,7 @@ import styles from './pos.less';
 import { FootDataModelState, PosType } from '../../../type';
 
 interface Props {
-  data: {
+  data?: {
     type: PosType,
     data: string,
     x: number,
@@ -12,7 +12,7 @@ interface Props {
 }
 
 
-export default ({ data }: Props) => {
+export default ({ data = [] }: Props) => {
 
   const arr = data.map((e, i) => {
     let pos = {
