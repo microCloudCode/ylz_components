@@ -1,6 +1,6 @@
 {
   "name": "ylz_components",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "易联众公共组件",
   "main": "dist/index.esm.js",
   "types":"./dist/index.d.ts",

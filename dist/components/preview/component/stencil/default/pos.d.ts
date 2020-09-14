@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import { PosType } from '../../../type';
 interface Props {
-    data: {
+    data?: {
         type: PosType;
         data: string;
         x: number;
