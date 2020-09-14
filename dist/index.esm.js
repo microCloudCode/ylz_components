@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, forwardRef, useMemo, useImperativeHandle } from 'react';
+import React, { useRef, useState, useEffect, useMemo, forwardRef, useImperativeHandle } from 'react';
 import Barcode from 'react-barcode';
 import { message, Space, Button } from 'antd';
 import { useReactToPrint } from 'react-to-print';
@@ -351,7 +351,7 @@ function cropTable(arr, htmlList, MaxHeight) {
   return arr;
 }
 
-function usePageList(Data, getHeight, getHtmlList, readyPromise) {
+function usePageList(Data, getHeight, getHtmlList, calculatedPromise) {
   var El = useRef({
     index: 0
   });
@@ -364,7 +364,7 @@ function usePageList(Data, getHeight, getHtmlList, readyPromise) {
 
   useEffect(function () {
     if (pageList.length === 0) {
-      readyPromise.res('绘制完毕');
+      calculatedPromise.res('绘制完毕');
       return;
     }
 
@@ -391,7 +391,7 @@ function usePageList(Data, getHeight, getHtmlList, readyPromise) {
 
 
     if (El.current.index >= Data.page.length - 1) {
-      readyPromise.res('绘制完毕');
+      calculatedPromise.res('绘制完毕');
       return;
     } // 移动坐标，继续绘制
 
@@ -410,7 +410,7 @@ function usePageList(Data, getHeight, getHtmlList, readyPromise) {
   return [pageList];
 }
 
-var css$5 = ".report_body__3Av0B {\n  margin: 0pt 29pt;\n}\n.report_title__3sOyW {\n  font-size: 20pt;\n  font-weight: bold;\n  text-align: center;\n  margin-bottom: 10pt;\n}\n.report_info__3Qwq2 {\n  border-top: 3pt solid #000;\n  border-bottom: 3pt solid #000;\n  padding: 7pt 2pt;\n  display: flex;\n  flex-wrap: wrap;\n}\n.report_info__3Qwq2 .report_info_item__-9kKl {\n  font-size: 9pt;\n  font-weight: bold;\n  line-height: 16pt;\n  min-width: 169pt;\n}\n.report_info__3Qwq2 .report_info_item_title__KryA7 {\n  width: 48pt;\n  text-align: justify;\n  -moz-text-align-last: justify;\n       text-align-last: justify;\n  display: inline-block;\n}\n.report_imgList__2ErRb {\n  margin: 10pt 0;\n  width: 100%;\n  display: flex;\n  justify-content: space-evenly;\n  height: 200pt;\n  overflow: hidden;\n}\n.report_imgList__2ErRb .report_imgList_item__2-lxH {\n  flex: 1;\n  margin-right: 10pt;\n}\n.report_imgList__2ErRb .report_imgList_item__2-lxH .report_imgList_item_img__3kp5K {\n  width: 100%;\n  height: 200pt;\n}\n.report_description__bPQgD {\n  border-top: 3pt solid #000;\n  height: 250pt;\n  padding: 5pt;\n  font-size: 10pt;\n  font-weight: bold;\n  overflow: hidden;\n}\n.report_say__3KVtu {\n  border-top: 3pt solid #000;\n  height: 100pt;\n  padding: 5pt;\n  font-size: 10pt;\n  font-weight: bold;\n  overflow: hidden;\n}\n.report_foot__jdXym {\n  border-top: 3pt solid #000;\n  overflow: hidden;\n  padding-top: 3pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- {\n  display: flex;\n  justify-content: flex-end;\n  margin-bottom: 10pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- .report_foot_row_item__m8bNJ {\n  font-size: 10pt;\n  font-weight: bold;\n  margin-right: 5pt;\n  min-width: 135pt;\n}\n.report_pre__34T-1 {\n  white-space: pre-wrap;\n  word-wrap: break-word;\n}\n.report_reportInfo__2Jd-M {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 5pt;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk {\n  font-size: 8pt;\n  font-weight: bold;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk > span {\n  display: inline-block;\n  min-width: 46pt;\n}\n";
+var css$5 = ".report_body__3Av0B {\n  margin: 0pt 29pt;\n}\n.report_title__3sOyW {\n  font-size: 20pt;\n  font-weight: bold;\n  text-align: center;\n  margin-bottom: 10pt;\n}\n.report_info__3Qwq2 {\n  border-top: 3pt solid #000;\n  border-bottom: 3pt solid #000;\n  padding: 7pt 2pt;\n  display: flex;\n  flex-wrap: wrap;\n  max-height: 65pt;\n}\n.report_info__3Qwq2 .report_info_item__-9kKl {\n  font-size: 9pt;\n  font-weight: bold;\n  line-height: 16pt;\n  min-width: 169pt;\n}\n.report_info__3Qwq2 .report_info_item_title__KryA7 {\n  width: 48pt;\n  text-align: justify;\n  -moz-text-align-last: justify;\n       text-align-last: justify;\n  display: inline-block;\n}\n.report_imgList__2ErRb {\n  margin: 10pt 0;\n  width: 100%;\n  display: flex;\n  justify-content: space-evenly;\n  height: 200pt;\n  overflow: hidden;\n}\n.report_imgList__2ErRb .report_imgList_item__2-lxH {\n  flex: 1;\n  margin-right: 10pt;\n}\n.report_imgList__2ErRb .report_imgList_item__2-lxH .report_imgList_item_img__3kp5K {\n  width: 100%;\n  height: 200pt;\n}\n.report_description__bPQgD {\n  border-top: 3pt solid #000;\n  height: 250pt;\n  padding: 5pt;\n  font-size: 10pt;\n  font-weight: bold;\n  overflow: hidden;\n}\n.report_say__3KVtu {\n  border-top: 3pt solid #000;\n  height: 100pt;\n  padding: 5pt;\n  font-size: 10pt;\n  font-weight: bold;\n  overflow: hidden;\n}\n.report_foot__jdXym {\n  border-top: 3pt solid #000;\n  overflow: hidden;\n  padding-top: 3pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- {\n  display: flex;\n  justify-content: flex-end;\n  margin-bottom: 10pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- .report_foot_row_item__m8bNJ {\n  font-size: 10pt;\n  font-weight: bold;\n  margin-right: 5pt;\n  min-width: 135pt;\n}\n.report_pre__34T-1 {\n  white-space: pre-wrap;\n  word-wrap: break-word;\n}\n.report_reportInfo__2Jd-M {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 5pt;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk {\n  font-size: 8pt;\n  font-weight: bold;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk > span {\n  display: inline-block;\n  min-width: 46pt;\n}\n";
 var styles$4 = {"body":"report_body__3Av0B","title":"report_title__3sOyW","info":"report_info__3Qwq2","info_item":"report_info_item__-9kKl","info_item_title":"report_info_item_title__KryA7","imgList":"report_imgList__2ErRb","imgList_item":"report_imgList_item__2-lxH","imgList_item_img":"report_imgList_item_img__3kp5K","description":"report_description__bPQgD","say":"report_say__3KVtu","foot":"report_foot__jdXym","foot_row":"report_foot_row__1U5F-","foot_row_item":"report_foot_row_item__m8bNJ","pre":"report_pre__34T-1","reportInfo":"report_reportInfo__2Jd-M","reportInfo_item":"report_reportInfo_item__3typk"};
 styleInject(css$5);
 
@@ -486,7 +486,10 @@ styleInject(css$6);
 
 var RotateImg = (function (_ref) {
   var rot = _ref.rot,
-      src = _ref.src;
+      src = _ref.src,
+      onLoad = _ref.onLoad,
+      onError = _ref.onError,
+      onStart = _ref.onStart;
 
   var _useState = useState(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -494,8 +497,12 @@ var RotateImg = (function (_ref) {
       setUrl = _useState2[1];
 
   useEffect(function () {
+    onStart();
     getSrc(src, rot).then(function (e) {
-      return setUrl(e);
+      setUrl(e);
+      onLoad();
+    }).catch(function (e) {
+      return onError();
     });
   }, [rot, src]);
   return React.createElement(React.Fragment, null, React.createElement("img", {
@@ -506,6 +513,8 @@ var RotateImg = (function (_ref) {
 
 var getSrc = function getSrc(url, rot) {
   return new Promise(function (res, rej) {
+    console.log("开始");
+
     if (rot === 0) {
       //无需旋转，直接返回原url
       return res(url);
@@ -602,13 +611,28 @@ var Pos = (function (_ref) {
   return React.createElement(React.Fragment, null, arr);
 });
 
+function createPromise() {
+  var rej = null;
+  var res = null;
+  var obj = new Promise(function (r, j) {
+    res = r;
+    rej = j;
+  });
+  return {
+    promise: obj,
+    res: res,
+    rej: rej
+  };
+}
+
 /**
  * 默认的渲染模版
  */
 
 var Page = (function (_ref) {
   var Data = _ref.Data,
-      readyPromise = _ref.readyPromise;
+      calculatedPromise = _ref.calculatedPromise,
+      pushLoadItem = _ref.pushLoadItem;
   var divEl = useRef(null);
 
   var getHeight = function getHeight() {
@@ -629,9 +653,10 @@ var Page = (function (_ref) {
     };
   };
 
-  var _usePageList = usePageList(Data, getHeight, getHtmlList, readyPromise),
+  var _usePageList = usePageList(Data, getHeight, getHtmlList, calculatedPromise),
       _usePageList2 = _slicedToArray(_usePageList, 1),
-      pageList = _usePageList2[0]; // 项目
+      pageList = _usePageList2[0]; //计算页面元素分布
+  // 项目
 
 
   var pageItem = function pageItem(e) {
@@ -648,12 +673,22 @@ var Page = (function (_ref) {
         //图片
         var _data = res.data;
         var isRotate = (_data$isRotate = _data.isRotate) !== null && _data$isRotate !== void 0 ? _data$isRotate : true;
+        var promise = createPromise();
         return React.createElement("div", {
           className: styles$3.page_content_img,
           key: i
         }, React.createElement(RotateImg, {
           src: _data.src,
-          rot: isRotate ? 90 : 0
+          rot: isRotate ? 90 : 0,
+          onError: function onError() {
+            return promise.rej();
+          },
+          onLoad: function onLoad() {
+            return promise.res();
+          },
+          onStart: function onStart() {
+            return pushLoadItem(promise.promise);
+          }
         }), React.createElement(Pos, {
           data: _data.pos
         }));
@@ -815,20 +850,39 @@ var Foot = (function (_ref) {
 
 var Default = (function (_ref) {
   var Data = _ref.Data,
-      readyPromise = _ref.readyPromise;
+      calculatedPromise = _ref.calculatedPromise,
+      pushLoadItem = _ref.pushLoadItem;
   return React.createElement(React.Fragment, null, React.createElement("div", {
     className: "".concat(styles$1.cover, " ").concat(styles$1.A4)
   }, React.createElement(Cover, {
     Data: Data
   })), React.createElement(Page, {
     Data: Data,
-    readyPromise: readyPromise
+    calculatedPromise: calculatedPromise,
+    pushLoadItem: pushLoadItem
   }), React.createElement("div", {
     className: "".concat(styles$1.A4)
   }, React.createElement(Foot, {
     Data: Data.foot
   })));
 });
+
+function usePromise() {
+  var arr = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  return useMemo(function () {
+    var res = null;
+    var rej = null;
+    var promise = new Promise(function (resolve, reject) {
+      res = resolve;
+      rej = reject;
+    });
+    return {
+      promise: promise,
+      res: res,
+      rej: rej
+    };
+  }, arr);
+}
 
 var StencilType;
 
@@ -840,13 +894,53 @@ var Stencil = (function (_ref) {
   var _ref$type = _ref.type,
       type = _ref$type === void 0 ? StencilType.Default : _ref$type,
       Data = _ref.Data,
-      readyPromise = _ref.readyPromise;
+      onLoad = _ref.onLoad;
+
+  var _useRef = useRef({
+    loadList: []
+  }),
+      current = _useRef.current;
+
+  var calculatedPromise = usePromise([]); //页面元素分布计算完成
+
+  var pushLoadItem = function pushLoadItem(item) {
+    current.loadList.push(item);
+  };
+
+  useEffect(function () {
+    calculatedPromise.promise.then( /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return Promise.all(current.loadList);
+
+              case 2:
+                //全部计算完毕
+                onLoad();
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref2.apply(this, arguments);
+      };
+    }());
+  }, []);
 
   switch (type) {
     case StencilType.Default:
       return React.createElement(Default, {
         Data: Data,
-        readyPromise: readyPromise
+        calculatedPromise: calculatedPromise,
+        pushLoadItem: pushLoadItem
       });
 
     default:
@@ -897,21 +991,17 @@ function _html2Base() {
 var Preview = forwardRef(function (_ref, ref) {
   var hideRender = _ref.hideRender,
       data = _ref.data;
-  var divRef = useRef(null);
-  var readyPromise = useMemo(function () {
-    //模版计算，渲染完毕的标识
-    var res = null;
-    var rej = null;
-    var promise = new Promise(function (resolve, reject) {
-      res = resolve;
-      rej = reject;
-    });
-    return {
-      promise: promise,
-      res: res,
-      rej: rej
-    };
-  }, []);
+  var divRef = useRef(null); //页面布局计算完毕promise
+
+  var pagePromise = usePromise([]); // 即将打印promise
+
+  var beforePrintPromise = usePromise([]);
+
+  var onLoad = function onLoad() {
+    console.log("真实dom结构计算完毕");
+    pagePromise.res();
+  };
+
   useImperativeHandle(ref, function () {
     return {
       print: function () {
@@ -923,7 +1013,7 @@ var Preview = forwardRef(function (_ref, ref) {
                 case 0:
                   hide = message.loading('绘制中...', 0);
                   _context.next = 3;
-                  return readyPromise.promise;
+                  return pagePromise.promise;
 
                 case 3:
                   _context.t0 = handlePrint;
@@ -937,9 +1027,13 @@ var Preview = forwardRef(function (_ref, ref) {
                   return handlePrint();
 
                 case 7:
+                  _context.next = 9;
+                  return beforePrintPromise.promise;
+
+                case 9:
                   hide();
 
-                case 8:
+                case 10:
                 case "end":
                   return _context.stop();
               }
@@ -962,7 +1056,7 @@ var Preview = forwardRef(function (_ref, ref) {
                 case 0:
                   hide = message.loading('生成中...', 0);
                   _context2.next = 3;
-                  return readyPromise.promise;
+                  return pagePromise.promise;
 
                 case 3:
                   _context2.next = 5;
@@ -995,7 +1089,8 @@ var Preview = forwardRef(function (_ref, ref) {
     documentTitle: '体检报告',
     bodyClass: styles.printWindows,
     onBeforePrint: function onBeforePrint() {
-      console.log('完毕123');
+      console.log('即将打印');
+      beforePrintPromise.res();
     }
   }); // 生成PDF
 
@@ -1066,10 +1161,7 @@ var Preview = forwardRef(function (_ref, ref) {
   }, React.createElement(Stencil, {
     Data: data,
     type: StencilType.Default,
-    readyPromise: {
-      res: readyPromise.res,
-      rej: readyPromise.rej
-    }
+    onLoad: onLoad
   }));
 });
 
