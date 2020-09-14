@@ -15,7 +15,7 @@
 import { Report } from 'ylz_components';
 
 const reportRef = useRef(null)
-<Report ref={reportRef} />
+<Report ref={reportRef} coverUrl={url} footUrl={url} />
 
 reportRef.current.open(data)//预览
 reportRef.current.print(data)//打印

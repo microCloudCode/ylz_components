@@ -1,5 +1,7 @@
 import React from 'react';
 interface Props {
+    coverUrl: string;
+    footUrl: string;
 }
 interface ref {
     open: (data: any) => any;
