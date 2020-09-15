@@ -1,15 +1,15 @@
 {
   "name": "ylz_components",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "易联众公共组件",
   "main": "dist/index.esm.js",
-  "types":"./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "father doc dev",
     "build": "father build",
     "build:doc": "father doc build",
     "deploy": "father doc deploy",
-    "merge":"git checkout dev dist package.json README.md"
+    "merge": "git checkout dev dist package.json README.md"
   },
   "author": "微云",
   "license": "ISC",
@@ -20,12 +20,13 @@
     "react-to-print": "^2.9.0"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.1",
     "@rollup/plugin-url": "^5.0.1",
     "@types/react-dom": "^16.9.8",
-    "father": "^2.29.8"
+    "father": "^2.29.10"
   },
   "peerDependencies": {
-    "antd": "^4.6.2",
+    "antd": "^4.6.4",
     "react": "^16.12.0",
     "react-dom": "^16.13.1"
   },

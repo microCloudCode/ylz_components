@@ -81,6 +81,7 @@ export interface PageValue {
     isPrint: boolean;
     isNewPage: boolean;
     isHideHeader: boolean;
+    isHideFoot: boolean;
     data: TableType | ImgType | ReportType;
 }
 export interface FootDataModelState {
