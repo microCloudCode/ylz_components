@@ -113,6 +113,8 @@ test1.push({
   type: ComponentType.Report,
   isPrint: true, //是否打印
   isNewPage: true,
+  isHideFoot:true,
+  isHideHeader:true,
   data: {
     title: '报告单',
     reportInfo: [
@@ -125,10 +127,12 @@ test1.push({
         value: '000000001E',
       },
     ],
-    basicInfo: ['title'], //基本信息
+    basicInfo: ['hospital','number', 'sex', 'date',"licenseNum","name","age","address","type"], //基本信息
     img: [
       'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
       'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
+      'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
+      // 'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
     ],
     description:
       '超声所见 阿克苏等哈看手机等哈看介绍打算结婚的卡说的话啊看世界很多卡上的', //描述
@@ -158,9 +162,9 @@ export const Data = {
   info: {
     //信息
     data: {
-      title: {
+      hospital: {
         title: '医院名称',
-        data: '厦门医院',
+        data: '江南街道社区卫生服务中心',
       }, //医院名称
       number: {
         title: '体检号',
@@ -192,7 +196,7 @@ export const Data = {
       }, //体检类型
       licenseNum: {
         title: '证件号',
-        data: '123123',
+        data: '350623499806156320',
       }, //证件号
       address: {
         title: '现住址',
@@ -204,8 +208,8 @@ export const Data = {
           'https://alipic.lanhuapp.com/psccbcfbbce1189751-7dcc-4355-af9c-88e2d5a347ef',
       }, //头像
     },
-    cover: ['title'], //封面信息
-    detailsInfo: ['title'], //详细信息
+    cover: ['hospital'], //封面信息
+    detailsInfo: ['hospital'], //详细信息
     headerInfo: {
       info: ['number', 'sex', 'date'],
       barCode: 'number',

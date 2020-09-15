@@ -207,7 +207,7 @@ styleInject(css$2);
  */
 
 var Cover = (function (_ref) {
-  var _Data$info$data, _Data$info$data$title;
+  var _Data$info$data, _Data$info$data$hospi;
 
   var Data = _ref.Data,
       coverUrl = _ref.coverUrl;
@@ -228,7 +228,7 @@ var Cover = (function (_ref) {
     className: styles$2.cover_title
   }, React.createElement("span", {
     className: styles$2.cover_title_text
-  }, (_Data$info$data = Data.info.data) === null || _Data$info$data === void 0 ? void 0 : (_Data$info$data$title = _Data$info$data.title) === null || _Data$info$data$title === void 0 ? void 0 : _Data$info$data$title.data)), React.createElement("div", {
+  }, (_Data$info$data = Data.info.data) === null || _Data$info$data === void 0 ? void 0 : (_Data$info$data$hospi = _Data$info$data.hospital) === null || _Data$info$data$hospi === void 0 ? void 0 : _Data$info$data$hospi.data)), React.createElement("div", {
     className: styles$2.cover_tips
   }, React.createElement("span", {
     className: styles$2.cover_tips_en
@@ -408,15 +408,19 @@ function usePageList(Data, getHeight, getHtmlList, calculatedPromise) {
   return [pageList];
 }
 
-var css$5 = ".report_body__3Av0B {\n  margin: 0pt 29pt;\n}\n.report_title__3sOyW {\n  font-size: 20pt;\n  font-weight: bold;\n  text-align: center;\n  margin-bottom: 10pt;\n}\n.report_info__3Qwq2 {\n  border-top: 3pt solid #000;\n  border-bottom: 3pt solid #000;\n  padding: 7pt 2pt;\n  display: flex;\n  flex-wrap: wrap;\n  max-height: 65pt;\n  overflow: hidden;\n}\n.report_info__3Qwq2 .report_info_item__-9kKl {\n  font-size: 9pt;\n  font-weight: bold;\n  line-height: 16pt;\n  min-width: 169pt;\n}\n.report_info__3Qwq2 .report_info_item_title__KryA7 {\n  width: 48pt;\n  text-align: justify;\n  -moz-text-align-last: justify;\n       text-align-last: justify;\n  display: inline-block;\n}\n.report_imgList__2ErRb {\n  margin: 10pt 0;\n  width: 100%;\n  display: flex;\n  justify-content: space-evenly;\n  height: 200pt;\n  overflow: hidden;\n}\n.report_imgList__2ErRb .report_imgList_item__2-lxH {\n  flex: 1;\n  margin-right: 10pt;\n}\n.report_imgList__2ErRb .report_imgList_item__2-lxH .report_imgList_item_img__3kp5K {\n  width: 100%;\n  height: 200pt;\n}\n.report_description__bPQgD {\n  border-top: 3pt solid #000;\n  height: 217pt;\n  padding: 5pt;\n  font-size: 10pt;\n  font-weight: bold;\n  overflow: hidden;\n}\n.report_say__3KVtu {\n  border-top: 3pt solid #000;\n  height: 100pt;\n  padding: 5pt;\n  font-size: 10pt;\n  font-weight: bold;\n  overflow: hidden;\n}\n.report_foot__jdXym {\n  border-top: 3pt solid #000;\n  overflow: hidden;\n  padding-top: 3pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- {\n  display: flex;\n  justify-content: flex-end;\n  margin-bottom: 10pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- .report_foot_row_item__m8bNJ {\n  font-size: 10pt;\n  font-weight: bold;\n  margin-right: 5pt;\n  min-width: 135pt;\n}\n.report_pre__34T-1 {\n  white-space: pre-wrap;\n  word-wrap: break-word;\n}\n.report_reportInfo__2Jd-M {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 5pt;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk {\n  font-size: 8pt;\n  font-weight: bold;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk > span {\n  display: inline-block;\n  min-width: 46pt;\n}\n";
-var styles$4 = {"body":"report_body__3Av0B","title":"report_title__3sOyW","info":"report_info__3Qwq2","info_item":"report_info_item__-9kKl","info_item_title":"report_info_item_title__KryA7","imgList":"report_imgList__2ErRb","imgList_item":"report_imgList_item__2-lxH","imgList_item_img":"report_imgList_item_img__3kp5K","description":"report_description__bPQgD","say":"report_say__3KVtu","foot":"report_foot__jdXym","foot_row":"report_foot_row__1U5F-","foot_row_item":"report_foot_row_item__m8bNJ","pre":"report_pre__34T-1","reportInfo":"report_reportInfo__2Jd-M","reportInfo_item":"report_reportInfo_item__3typk"};
+var css$5 = ".report_body__3Av0B {\n  margin: 0pt 29pt;\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  align-content: flex-start;\n}\n.report_boldText__sXezY {\n  font-weight: bold;\n  font-size: 11pt;\n  font-family: STXihei;\n  color: #1c2438;\n}\n.report_header__3Ct38 {\n  text-align: center;\n  margin-bottom: 10pt;\n  display: flex;\n  align-items: flex-start;\n  justify-content: center;\n  margin-left: -95pt;\n}\n.report_header_img__29zjw {\n  width: 55pt;\n  margin-right: 40pt;\n}\n.report_header_hospital__1msih {\n  font-size: 20pt;\n  font-weight: bold;\n  color: #1c2438;\n}\n.report_header_title__3cRcL {\n  font-size: 15pt;\n  font-weight: bold;\n}\n.report_info__3Qwq2 {\n  border-top: 3pt solid #000;\n  border-bottom: 3pt solid #000;\n  padding: 7pt 2pt;\n  display: flex;\n  flex-wrap: wrap;\n  overflow: hidden;\n}\n.report_info__3Qwq2 .report_info_item__-9kKl {\n  font-size: 9pt;\n  font-weight: bold;\n  line-height: 16pt;\n  min-width: 169pt;\n}\n.report_info__3Qwq2 .report_info_item_title__KryA7 {\n  width: 45pt;\n  text-align: justify;\n  -moz-text-align-last: justify;\n       text-align-last: justify;\n  display: inline-block;\n}\n.report_imgList_box__2YIs- {\n  margin: 2pt 0;\n}\n.report_imgList_box__2YIs- .report_imgList__2ErRb {\n  margin-top: 2pt;\n  display: flex;\n  justify-content: space-evenly;\n  overflow: hidden;\n  align-items: flex-start;\n  border-bottom: 2pt solid #000;\n  padding-bottom: 8pt;\n}\n.report_imgList_box__2YIs- .report_imgList__2ErRb .report_imgList_item__2-lxH {\n  flex: 1;\n  width: 1px;\n}\n.report_marginRight10__2zHqX {\n  margin-right: 10pt;\n}\n.report_description__bPQgD {\n  width: 100%;\n  flex: 1;\n  padding: 5pt;\n  font-size: 10pt;\n  font-weight: bold;\n  overflow: hidden;\n}\n.report_say__3KVtu {\n  width: 100%;\n  height: 190pt;\n  padding: 5pt;\n  font-size: 10pt;\n  font-weight: bold;\n  overflow: hidden;\n}\n.report_foot__jdXym {\n  border-top: 2pt solid #000;\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  overflow: hidden;\n  padding-top: 3pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- {\n  display: flex;\n  justify-content: flex-end;\n  margin-bottom: 2pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- .report_foot_row_item__m8bNJ {\n  font-size: 10pt;\n  font-weight: bold;\n  margin-right: 5pt;\n  min-width: 140pt;\n}\n.report_pre__34T-1 {\n  white-space: pre-wrap;\n  word-wrap: break-word;\n}\n.report_reportInfo__2Jd-M {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 5pt;\n  width: 100%;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk {\n  font-size: 8pt;\n  font-weight: bold;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk > span {\n  display: inline-block;\n  min-width: 46pt;\n}\n";
+var styles$4 = {"body":"report_body__3Av0B","boldText":"report_boldText__sXezY","header":"report_header__3Ct38","header_img":"report_header_img__29zjw","header_hospital":"report_header_hospital__1msih","header_title":"report_header_title__3cRcL","info":"report_info__3Qwq2","info_item":"report_info_item__-9kKl","info_item_title":"report_info_item_title__KryA7","imgList_box":"report_imgList_box__2YIs-","imgList":"report_imgList__2ErRb","imgList_item":"report_imgList_item__2-lxH","marginRight10":"report_marginRight10__2zHqX","description":"report_description__bPQgD","say":"report_say__3KVtu","foot":"report_foot__jdXym","foot_row":"report_foot_row__1U5F-","foot_row_item":"report_foot_row_item__m8bNJ","pre":"report_pre__34T-1","reportInfo":"report_reportInfo__2Jd-M","reportInfo_item":"report_reportInfo_item__3typk"};
 styleInject(css$5);
+
+var hongshiziPng = "4667b9ad91946bd5.png";
 
 /**
  * 报告单
  */
 
 var Report = (function (_ref) {
+  var _data$img, _info$data, _info$data$hospital, _data$img2;
+
   var data = _ref.data,
       info = _ref.info;
   var infoList = data.basicInfo.map(function (e, i) {
@@ -424,24 +428,24 @@ var Report = (function (_ref) {
       className: styles$4.info_item,
       key: e
     }, React.createElement("span", {
-      className: styles$4.info_item_title
+      className: "".concat(styles$4.info_item_title, " ").concat(styles$4.boldText)
     }, info.data[e].title), React.createElement("span", null, "\uFF1A"), React.createElement("span", null, info.data[e].data));
   });
   var reportInfo = data.reportInfo.map(function (e, i) {
     return React.createElement("div", {
       className: styles$4.reportInfo_item,
       key: i
-    }, React.createElement("span", null, e.title, "\uFF1A"), React.createElement("span", null, e.value));
+    }, React.createElement("span", {
+      className: styles$4.boldText
+    }, e.title, "\uFF1A"), React.createElement("span", null, e.value));
   }); // 图片列表
 
-  var imgList = data.img.map(function (e, i) {
-    return React.createElement("div", {
-      className: styles$4.imgList_item,
-      key: i
-    }, React.createElement("img", {
+  var imgList = data === null || data === void 0 ? void 0 : (_data$img = data.img) === null || _data$img === void 0 ? void 0 : _data$img.map(function (e, i, arr) {
+    return React.createElement("img", {
       src: e,
-      className: styles$4.imgList_item_img
-    }));
+      className: "".concat(styles$4.imgList_item, " ").concat(arr.length - 1 === i ? "" : styles$4.marginRight10),
+      key: i
+    });
   }); // 底部
 
   var foot = data.foot.map(function (e, i) {
@@ -452,30 +456,49 @@ var Report = (function (_ref) {
       return React.createElement("div", {
         className: styles$4.foot_row_item,
         key: i
-      }, React.createElement("span", null, res.title, "\uFF1A"), React.createElement("span", null, res.value));
+      }, React.createElement("span", {
+        className: styles$4.boldText
+      }, res.title, "\uFF1A"), React.createElement("span", null, res.value));
     }));
   });
   return React.createElement("div", {
     className: styles$4.body
   }, React.createElement("div", {
+    className: styles$4.header
+  }, React.createElement("img", {
+    src: hongshiziPng,
+    className: styles$4.header_img
+  }), React.createElement("div", {
     className: styles$4.title
-  }, data.title), React.createElement("div", {
+  }, React.createElement("div", {
+    className: styles$4.header_hospital
+  }, (_info$data = info.data) === null || _info$data === void 0 ? void 0 : (_info$data$hospital = _info$data.hospital) === null || _info$data$hospital === void 0 ? void 0 : _info$data$hospital.data), React.createElement("div", {
+    className: styles$4.header_title
+  }, data.title))), React.createElement("div", {
     className: styles$4.reportInfo
   }, reportInfo), React.createElement("div", {
     className: styles$4.info
-  }, infoList), React.createElement("div", {
+  }, infoList), (data === null || data === void 0 ? void 0 : (_data$img2 = data.img) === null || _data$img2 === void 0 ? void 0 : _data$img2.length) && React.createElement("div", {
+    className: styles$4.imgList_box
+  }, React.createElement("div", {
+    className: styles$4.boldText
+  }, "\u8D85\u58F0\u56FE\u50CF\uFF1A"), React.createElement("div", {
     className: styles$4.imgList
-  }, imgList), React.createElement("div", {
+  }, imgList)), React.createElement("div", {
     className: styles$4.description
-  }, React.createElement("pre", {
+  }, React.createElement("div", {
+    className: styles$4.boldText
+  }, "\u8D85\u58F0\u6240\u89C1\uFF1A"), React.createElement("pre", {
     className: styles$4.pre
   }, data.description)), React.createElement("div", {
     className: styles$4.say
-  }, React.createElement("pre", {
+  }, React.createElement("div", {
+    className: styles$4.boldText
+  }, "\u8D85\u58F0\u63D0\u793A\uFF1A"), React.createElement("pre", {
     className: styles$4.pre
   }, data.say)), React.createElement("div", {
     className: styles$4.foot
-  }, foot));
+  }, React.createElement("div", null, "\u4EC5\u4F9B\u4E34\u5E8A\u53C2\u8003\uFF0C\u4E0D\u4F5C\u8BC1\u660E\u6750\u6599!"), React.createElement("div", null, foot)));
 });
 
 var css$6 = ".index_img__1z4Bl {\n  width: 100%;\n  height: 100%;\n}\n";
@@ -715,9 +738,9 @@ var Page = (function (_ref) {
     }), index === 0 && detailsInfo(Data), React.createElement("div", {
       className: styles$3.page_content,
       ref: divEl
-    }, pageItem(e)), React.createElement("div", {
+    }, pageItem(e)), e[0].isHideFoot !== true && React.createElement("div", {
       className: styles$3.foot_br
-    }), foot(index + 1, arr.length));
+    }), e[0].isHideFoot !== true && foot(index + 1, arr.length));
   });
   return React.createElement(React.Fragment, null, page);
 }); // 详细信息

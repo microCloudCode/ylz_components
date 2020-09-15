@@ -86,9 +86,9 @@ export default ({ Data, calculatedPromise, pushLoadItem }: Props) => {
           {pageItem(e)}
         </div>
         {/* 分割线 */}
-        <div className={styles.foot_br}></div>
+        {e[0].isHideFoot !== true && <div className={styles.foot_br}></div>}
         {/* 页尾 */}
-        {foot(index + 1, arr.length)}
+        {e[0].isHideFoot !== true && foot(index + 1, arr.length)}
       </div>
     );
   });

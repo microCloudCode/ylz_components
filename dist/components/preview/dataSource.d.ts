@@ -6,7 +6,7 @@ export declare enum ComponentType {
 export declare const Data: {
     info: {
         data: {
-            title: {
+            hospital: {
                 title: string;
                 data: string;
             };

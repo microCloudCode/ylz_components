@@ -27,7 +27,7 @@ export default ({ Data, coverUrl }: Props) => {
       <div className={styles.header}></div>
       <div className={styles.cover_title}>
         <span className={styles.cover_title_text}>
-          {Data.info.data?.title?.data}
+          {Data.info.data?.hospital?.data}
         </span>
       </div>
       <div className={styles.cover_tips}>
