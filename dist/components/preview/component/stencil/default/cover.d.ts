@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { PrintDataModelState } from '../../../type';
+import { PrintDataModelState } from '@/components/preview/type';
 interface Props {
     Data: PrintDataModelState;
     coverUrl: string;

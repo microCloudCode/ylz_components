@@ -9,7 +9,7 @@ import Report from './report';
 import RotateImg from '../../../../rotateImg';
 import Pos from './pos';
 import Barcode from 'react-barcode';
-import { createPromise } from '../../../../../utils/util';
+import { createPromise } from '@/utils/util';
 
 interface Props {
   Data: PrintDataModelState;

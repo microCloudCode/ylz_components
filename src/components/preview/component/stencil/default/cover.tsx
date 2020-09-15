@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './cover.less';
-import { PrintDataModelState } from '../../../type';
+import { PrintDataModelState } from '@/components/preview/type';
 
 interface Props {
   Data: PrintDataModelState;

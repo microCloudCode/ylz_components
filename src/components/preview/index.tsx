@@ -2,7 +2,6 @@ import React, {
   useRef,
   forwardRef,
   useImperativeHandle,
-  useMemo,
 } from 'react';
 import styles from './index.less';
 import Stencil, { StencilType } from './component/stencil';
