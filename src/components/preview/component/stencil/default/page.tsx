@@ -22,7 +22,6 @@ interface Props {
  * 默认的渲染模版
  */
 export default ({ Data, onLoad, onError }: Props) => {
-  const divEl = useRef<HTMLDivElement>(null);
   const calculatedPromise = usePromise([Data]);//页面元素分布计算完成
   const { current } = useRef<{ loadList: any[] }>({
     loadList: [],//等待计算项
@@ -38,12 +37,10 @@ export default ({ Data, onLoad, onError }: Props) => {
     })
   }, [Data])
   const getHeight = (index: number) => document.getElementById(`page${index-1}`)?.clientHeight;
-  const getHtmlList = (itemIdx: number, index: number) => {
+  const getHtmlList = (pageIdx: number, index: number) => {
     //获取已选染TableDOM
-    let a = document.getElementById(`page${itemIdx - 1}`)
-    console.log(a)
-    console.log(a?.children[index])
-    const itemDom = a?.children[index];
+    let dom = document.getElementById(`page${pageIdx - 1}`)
+    const itemDom = dom?.children[index];
     const list = itemDom?.getElementsByClassName(tableStyles.table)[0].children[1].children
     return {
       content: itemDom,//框

@@ -41,7 +41,7 @@ function cropTable(arr: PageValue[][], htmlList: Element[], MaxHeight: number) {
 export function usePageList(
   page: PageValue[],
   getHeight: (index:number) => number | undefined,
-  getHtmlList: (itemIdx:number,index: number) => {
+  getHtmlList: (pageIdx:number,index: number) => {
     content: Element | undefined;
     list: Element[];
   },
