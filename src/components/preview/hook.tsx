@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-export function usePromise(arr = []) {
+export function usePromise(arr:any[] = []) {
   return useMemo(() => {
     let res = null;
     let rej = null;

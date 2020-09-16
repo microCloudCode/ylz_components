@@ -1,11 +1,11 @@
 import React, {
   useRef,
   forwardRef,
-  useImperativeHandle,
+  useImperativeHandle, useState, useEffect
 } from 'react';
 import styles from './index.less';
 import Stencil, { StencilType } from './component/stencil';
-import { PrintDataModelState } from './type';
+import { PageValue, ComponentType, TableType, PrintDataModelState } from './type';
 import { message } from 'antd';
 import { useReactToPrint } from 'react-to-print';
 import html2canvas from 'html2canvas';
@@ -22,10 +22,11 @@ export interface PreviewRef {
 
 interface Props {
   hideRender: boolean; //隐藏渲染
-  data: PrintDataModelState;
+  Data: PrintDataModelState;
   coverUrl: string;
   footUrl: string;
   onLoad?: () => void;
+  onError?: () => void;
 }
 
 /**
@@ -45,18 +46,32 @@ async function html2Base64(html: HTMLElement) {
 }
 
 export default forwardRef<PreviewRef, Props>(
-  ({ hideRender, data, coverUrl, footUrl, onLoad }: Props, ref) => {
+  ({ hideRender, Data, coverUrl, footUrl, onLoad, onError }: Props, ref) => {
+    const [data, setData] = useState(() => ({
+      ...Data,
+      page: PageToPrintList(Data.page)
+    }))
+    useEffect(()=>{
+      setData({
+        ...Data,
+        page: PageToPrintList(Data.page)
+      })
+    },[Data])
     const divRef = useRef<HTMLDivElement>(null);
     //页面布局计算完毕promise
-    const pagePromise = usePromise([]);
+    const pagePromise = usePromise([data]);
     // 即将打印promise
-    const beforePrintPromise = usePromise([]);
+    const beforePrintPromise = usePromise([data]);
     const load = () => {
-      console.log("真实dom结构计算完毕")
+      console.log("计算完毕")
       pagePromise.res()
       onLoad && onLoad()
     }
 
+    const error = () => {
+      pagePromise.rej()
+      onError && onError()
+    }
     useImperativeHandle(ref, () => ({
       print: async () => {
         let hide = message.loading('绘制中...', 0);
@@ -114,6 +129,7 @@ export default forwardRef<PreviewRef, Props>(
           Data={data}
           type={StencilType.Default}
           onLoad={load}
+          onError={error}
           coverUrl={coverUrl}
           footUrl={footUrl}
         />
@@ -121,3 +137,17 @@ export default forwardRef<PreviewRef, Props>(
     );
   },
 );
+
+// 去除不打印数据
+function PageToPrintList(page: PageValue[]) {
+  let arr: PageValue[] = JSON.parse(JSON.stringify(page));
+  let list = arr.filter(e => e.isPrint);
+  return list.map(e => {
+    if (e.type === ComponentType.Table) {
+      let table = e.data as TableType;
+      let data = table.data.filter(e => e.isPrint);
+      return { ...e, data: { ...e.data, data } };
+    }
+    return e;
+  });
+}

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import styles from './cover.less';
-import { PrintDataModelState } from '@/components/preview/type';
+import { InfoDataModelState } from '@/components/preview/type';
 
 interface Props {
-  Data: PrintDataModelState;
+  Data: InfoDataModelState;
   coverUrl: string
 }
 
@@ -11,14 +11,14 @@ interface Props {
  * 封面
  */
 export default ({ Data, coverUrl }: Props) => {
-  const info = Data.info.cover.map(e => {
+  const info = Data.cover.map(e => {
     return (
       <div key={e}>
         <span className={styles.cover_box_title}>
-          {Data.info.data[e].title}
+          {Data.data[e].title}
         </span>
         <span className={styles.cover_box_colon}>:</span>
-        <span className={styles.cover_box_text}>{Data.info.data[e].data}</span>
+        <span className={styles.cover_box_text}>{Data.data[e].data}</span>
       </div>
     );
   });
@@ -27,7 +27,7 @@ export default ({ Data, coverUrl }: Props) => {
       <div className={styles.header}></div>
       <div className={styles.cover_title}>
         <span className={styles.cover_title_text}>
-          {Data.info.data?.hospital?.data}
+          {Data.data?.hospital?.data}
         </span>
       </div>
       <div className={styles.cover_tips}>
@@ -39,8 +39,6 @@ export default ({ Data, coverUrl }: Props) => {
       {/*  */}
       <div className={styles.cover_img}>
         <img
-          // crossOrigin="anonymous"
-          // src={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
           src={coverUrl}
           className={styles.cover_img_bg}
         />

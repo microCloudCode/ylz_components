@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './page.less';
 import tableStyles from '../../table.less';
-import DefaultStyles from './default.less';
+import DefaultStyles from './index.less';
 import { PrintDataModelState, ComponentType, PageValue, TableType, ImgType, ReportType } from '../../../type';
 import Table from '../../table';
 import { usePageList } from '../hook';
@@ -10,32 +10,47 @@ import RotateImg from '../../../../rotateImg';
 import Pos from './pos';
 import Barcode from 'react-barcode';
 import { createPromise } from '../../../../../utils/util';
+import { usePromise } from '../../../hook';
 
 interface Props {
   Data: PrintDataModelState;
-  calculatedPromise: {
-    res: (value?: unknown) => void;
-    rej: (reason?: any) => void;
-  };
-  pushLoadItem: (e: any) => any
+  onLoad?: () => void;
+  onError?: () => void
 }
 
 /**
  * 默认的渲染模版
  */
-export default ({ Data, calculatedPromise, pushLoadItem }: Props) => {
+export default ({ Data, onLoad, onError }: Props) => {
   const divEl = useRef<HTMLDivElement>(null);
-  const getHeight = () => divEl.current?.clientHeight;
-  const getHtmlList = (index: number) => {
+  const calculatedPromise = usePromise([Data]);//页面元素分布计算完成
+  const { current } = useRef<{ loadList: any[] }>({
+    loadList: [],//等待计算项
+  })
+  useEffect(() => {
+    current.loadList = []
+    calculatedPromise.promise.then(async e => {//分布计算完毕
+      console.log(1231)
+      await Promise.all(current.loadList)//全部计算完毕
+      onLoad && onLoad()
+    }).catch(e => {
+      onError && onError()
+    })
+  }, [Data])
+  const getHeight = (index: number) => document.getElementById(`page${index-1}`)?.clientHeight;
+  const getHtmlList = (itemIdx: number, index: number) => {
     //获取已选染TableDOM
-    const itemDom = divEl.current?.children[index];
+    let a = document.getElementById(`page${itemIdx - 1}`)
+    console.log(a)
+    console.log(a?.children[index])
+    const itemDom = a?.children[index];
     const list = itemDom?.getElementsByClassName(tableStyles.table)[0].children[1].children
     return {
       content: itemDom,//框
       list: list ? [...list] : [],//具体项
     }
   };
-  const [pageList] = usePageList(Data, getHeight, getHtmlList, calculatedPromise);//计算页面元素分布
+  const [pageList] = usePageList(Data.page, getHeight, getHtmlList, calculatedPromise);//计算页面元素分布
 
   // 项目
   const pageItem = (e: PageValue[]) => {
@@ -57,7 +72,7 @@ export default ({ Data, calculatedPromise, pushLoadItem }: Props) => {
               rot={isRotate ? 90 : 0}
               onError={() => promise.rej()}
               onLoad={() => promise.res()}
-              onStart={() => pushLoadItem(promise.promise)} />
+              onStart={() => current.loadList.push(promise.promise)} />
             <Pos data={data.pos} />
           </div>
         );
@@ -74,7 +89,7 @@ export default ({ Data, calculatedPromise, pushLoadItem }: Props) => {
   // 页内容
   const page = pageList.map((e, index: number, arr) => {
     return (
-      <div className={`${DefaultStyles.A4}`} key={index}>
+      <div className={`${DefaultStyles.A4}`} key={index} >
         {/* 页眉 */}
         {e[0].isHideHeader !== true && header(Data)}
         {/* 分割线 */}
@@ -82,7 +97,7 @@ export default ({ Data, calculatedPromise, pushLoadItem }: Props) => {
         {/* 详细信息展示 */}
         {index === 0 && detailsInfo(Data)}
         {/* 内容 */}
-        <div className={styles.page_content} ref={divEl}>
+        <div className={styles.page_content} id={`page${index}`}>
           {pageItem(e)}
         </div>
         {/* 分割线 */}

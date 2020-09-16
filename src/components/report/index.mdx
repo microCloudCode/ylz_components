@@ -1,0 +1,35 @@
+---
+name: report
+route: /report
+order: 8
+sidebar: true
+---
+
+import { Playground } from "docz";
+
+# report 报告
+
+## 安装
+
+## 例子
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import Report from "./index.tsx";
+import Data from "../preview/testData.ts";
+import { Button } from "antd";
+
+<Playground>
+  {() => {
+    const reportRef = React.useRef(null);
+    const open = () => {
+      reportRef.current.open(Data);
+    };
+    return (
+      <div>  
+        <Button onClick={open}>点击</Button>
+        <Report ref={reportRef}
+         coverUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
+         footUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm1.png"}   />
+      </div>
+    );
+  }}
+</Playground>

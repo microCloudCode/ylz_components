@@ -1,34 +1,43 @@
 ---
-name: Preview
-route: /Preview
+name: preview
+route: /preview
 order: 8
 sidebar: true
 ---
 
 import { Playground } from "docz";
 
-# Preview 预览组件
+# preview 预览组件
 
 ## 安装
 
 ## 例子
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import Report from "../report/index.tsx";
-import Data from "./dataSource.ts";
+
+import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
+import Preview from "./index.tsx";
+import Data from "./testData.ts";
 import { Button } from "antd";
 
 <Playground>
   {() => {
-    const reportRef = React.useRef(null);
-    const open = () => {
-      reportRef.current.open(Data);
+    const [data, setData] = React.useState(Data); //页面数组
+    const tap = () => {
+      let arr = JSON.parse(JSON.stringify(data));
+      arr.page[0].data.title = "1";
+      arr.page[5].isPrint=false
+      console.log(arr)
+      setData(arr);
     };
     return (
-      <div>  
-        <Button onClick={open}>点击</Button>
-        <Report ref={reportRef}
-         coverUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
-         footUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm1.png"}   />
+      <div>
+        <Button onClick={tap}>点击</Button>
+        <Preview
+          hideRender={false}
+          Data={data}
+          onLoad={()=>console.log("我结束了")}
+          coverUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
+          footUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm1.png"}
+        />
       </div>
     );
   }}

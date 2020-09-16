@@ -39,9 +39,9 @@ function cropTable(arr: PageValue[][], htmlList: Element[], MaxHeight: number) {
 }
 
 export function usePageList(
-  Data: PrintDataModelState,
-  getHeight: () => number | undefined,
-  getHtmlList: (index: number) => {
+  page: PageValue[],
+  getHeight: (index:number) => number | undefined,
+  getHtmlList: (itemIdx:number,index: number) => {
     content: Element | undefined;
     list: Element[];
   },
@@ -50,27 +50,32 @@ export function usePageList(
     rej: (reason?: any) => void;
   },
 ) {
-  const El = useRef({
+  const { current } = useRef({
     index: 0, //当前计算的索引标识
   });
-  const [pageList, setPageList] = useState(
-    Data.page.length === 0 ? [] : [[Data.page[El.current.index]]],
-  ); //页面数组
+  const [pageList, setPageList] = useState(page.length === 0 ? [] : [[page[current.index]]]); //页面数组
 
   useEffect(() => {
+    console.log("修改")
+    current.index = 0;//重置
+    setPageList(page.length === 0 ? [] : [[page[current.index]]])
+  }, [page])
+
+  useEffect(() => {
+    console.log("计算",current.index)
     if (pageList.length === 0) {
       calculatedPromise.res('绘制完毕');
       return;
     }
     let arr: PageValue[][] = JSON.parse(JSON.stringify(pageList));
 
-    let height = getHeight(); //获取高度
+    let height = getHeight(pageList.length); //获取高度
     let lastArr = arr[arr.length - 1];
     let lastItem = lastArr[lastArr.length - 1];
-    // 判断是否超出边界
+    //表格
     if (lastItem.type === ComponentType.Table) {
-      //表格
-      let itemDom = getHtmlList(lastArr.length - 1);
+      // 判断是否超出边界
+      let itemDom = getHtmlList(pageList.length,lastArr.length - 1);
       let itemDomPos = itemDom.content?.clientHeight + (itemDom?.content as any)?.offsetTop;
       if (height && itemDomPos > height && itemDom.list) {//超出边界
         setPageList(cropTable(arr, itemDom.list, height)); //裁剪表格
@@ -79,14 +84,14 @@ export function usePageList(
     }
 
     // 坐标已到达极限
-    if (El.current.index >= Data.page.length - 1) {
+    if (current.index >= page.length - 1) {
       calculatedPromise.res('绘制完毕');
       return;
     }
 
     // 移动坐标，继续绘制
-    ++El.current.index;
-    let item = Data.page[El.current.index]; //取出要渲染的项
+    ++current.index;
+    let item = page[current.index]; //取出要渲染的项
     if (item.isNewPage || lastItem.isNewPage) {
       arr.push([item]); //创建新页
     } else {

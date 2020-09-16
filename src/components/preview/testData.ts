@@ -1,4 +1,4 @@
-import { PosType } from './type';
+import { PosType } from '../preview/type';
 
 export enum ComponentType {
   Table = 'table',
@@ -7,7 +7,7 @@ export enum ComponentType {
 }
 
 // 测试数据
-let test1 = Array(10).fill({
+let test1 = Array(8).fill({
   type: ComponentType.Table, //表格
   isPrint: true, //是否打印
   isNewPage: false,
