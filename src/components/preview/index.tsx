@@ -24,7 +24,8 @@ interface Props {
   hideRender: boolean; //隐藏渲染
   data: PrintDataModelState;
   coverUrl: string;
-  footUrl: string
+  footUrl: string;
+  onLoad?: () => void;
 }
 
 /**
@@ -44,15 +45,16 @@ async function html2Base64(html: HTMLElement) {
 }
 
 export default forwardRef<PreviewRef, Props>(
-  ({ hideRender, data, coverUrl, footUrl }: Props, ref) => {
+  ({ hideRender, data, coverUrl, footUrl, onLoad }: Props, ref) => {
     const divRef = useRef<HTMLDivElement>(null);
     //页面布局计算完毕promise
     const pagePromise = usePromise([]);
     // 即将打印promise
     const beforePrintPromise = usePromise([]);
-    const onLoad = () => {
+    const load = () => {
       console.log("真实dom结构计算完毕")
       pagePromise.res()
+      onLoad && onLoad()
     }
 
     useImperativeHandle(ref, () => ({
@@ -111,7 +113,7 @@ export default forwardRef<PreviewRef, Props>(
         <Stencil
           Data={data}
           type={StencilType.Default}
-          onLoad={onLoad}
+          onLoad={load}
           coverUrl={coverUrl}
           footUrl={footUrl}
         />
