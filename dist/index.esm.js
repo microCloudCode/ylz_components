@@ -190,7 +190,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".index_body__3JAOh {\n  overflow: hidden;\n}\n.index_hide__3iZps {\n  position: fixed;\n  left: -99900px;\n  top: 0;\n}\n@media print {\n  .index_hide__3iZps {\n    position: static;\n  }\n}\n.index_printWindows__3Ed8x {\n  overflow: visible;\n}\n";
+var css = ".index_body__3JAOh {\n  overflow: hidden;\n}\n.index_hide__3iZps {\n  position: fixed;\n  left: -99900px;\n  top: 0;\n}\n@media print {\n  .index_hide__3iZps {\n    position: static;\n  }\n}\n.index_printWindows__3Ed8x {\n  overflow: visible;\n}\nbody {\n  color: rgba(0, 0, 0, 0.85);\n}\n";
 var styles = {"body":"index_body__3JAOh","hide":"index_hide__3iZps","printWindows":"index_printWindows__3Ed8x"};
 styleInject(css);
 
@@ -408,7 +408,7 @@ function usePageList(Data, getHeight, getHtmlList, calculatedPromise) {
   return [pageList];
 }
 
-var css$5 = ".report_body__3Av0B {\n  margin: 0pt 29pt;\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  align-content: flex-start;\n}\n.report_boldText__sXezY {\n  font-size: 11pt;\n  font-family: STXihei;\n  color: #000;\n}\n.report_header__3Ct38 {\n  text-align: center;\n  margin-bottom: 10pt;\n  display: flex;\n  align-items: flex-start;\n  justify-content: center;\n  margin-left: -95pt;\n}\n.report_header_img__29zjw {\n  width: 55pt;\n  margin-right: 40pt;\n}\n.report_header_hospital__1msih {\n  font-size: 20pt;\n  color: #000;\n}\n.report_header_title__3cRcL {\n  font-size: 15pt;\n  color: #000;\n}\n.report_info__3Qwq2 {\n  border-top: 1pt solid #000;\n  border-bottom: 1pt solid #000;\n  padding: 7pt 2pt;\n  display: flex;\n  flex-wrap: wrap;\n  overflow: hidden;\n}\n.report_info__3Qwq2 .report_info_item__-9kKl {\n  font-size: 11pt;\n  line-height: 16pt;\n  min-width: 169pt;\n  color: #191919;\n}\n.report_info__3Qwq2 .report_info_item_title__KryA7 {\n  width: 45pt;\n  text-align: justify;\n  -moz-text-align-last: justify;\n       text-align-last: justify;\n  display: inline-block;\n}\n.report_imgList_box__2YIs- {\n  margin: 2pt 0;\n  border-bottom: 1pt solid #000;\n}\n.report_imgList_box__2YIs- .report_imgList__2ErRb {\n  margin-top: 2pt;\n  display: flex;\n  justify-content: space-evenly;\n  overflow: hidden;\n  align-items: flex-start;\n  padding-bottom: 8pt;\n}\n.report_imgList_box__2YIs- .report_imgList__2ErRb .report_imgList_item__2-lxH {\n  flex: 1;\n  width: 1px;\n}\n.report_marginRight10__2zHqX {\n  margin-right: 10pt;\n}\n.report_description__bPQgD {\n  width: 100%;\n  flex: 1;\n  padding: 5pt;\n  font-size: 10pt;\n  overflow: hidden;\n}\n.report_say__3KVtu {\n  width: 100%;\n  height: 190pt;\n  padding: 5pt;\n  font-size: 10pt;\n  overflow: hidden;\n}\n.report_foot__jdXym {\n  border-top: 1pt solid #000;\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  overflow: hidden;\n  padding-top: 3pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- {\n  display: flex;\n  justify-content: flex-end;\n  margin-bottom: 2pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- .report_foot_row_item__m8bNJ {\n  font-size: 11pt;\n  margin-right: 5pt;\n  min-width: 140pt;\n}\nbody {\n  color: rgba(0, 0, 0, 0.85);\n}\n.report_pre__34T-1 {\n  white-space: pre-wrap;\n  word-wrap: break-word;\n  font-size: 11pt;\n}\n.report_reportInfo__2Jd-M {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 5pt;\n  width: 100%;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk {\n  font-size: 11pt;\n  color: #191919;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk > span {\n  display: inline-block;\n}\n";
+var css$5 = ".report_body__3Av0B {\n  margin: 0pt 29pt;\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  align-content: flex-start;\n}\n.report_boldText__sXezY {\n  font-size: 11pt;\n  font-family: STXihei;\n  color: #000;\n}\n.report_header__3Ct38 {\n  text-align: center;\n  margin-bottom: 10pt;\n  display: flex;\n  align-items: flex-start;\n  justify-content: center;\n  margin-left: -95pt;\n}\n.report_header_img__29zjw {\n  width: 55pt;\n  margin-right: 40pt;\n}\n.report_header_hospital__1msih {\n  font-size: 20pt;\n  color: #000;\n}\n.report_header_title__3cRcL {\n  font-size: 15pt;\n  color: #000;\n}\n.report_info__3Qwq2 {\n  border-top: 1pt solid #000;\n  border-bottom: 1pt solid #000;\n  padding: 7pt 2pt;\n  display: flex;\n  flex-wrap: wrap;\n  overflow: hidden;\n}\n.report_info__3Qwq2 .report_info_item__-9kKl {\n  font-size: 11pt;\n  line-height: 16pt;\n  min-width: 169pt;\n  color: #191919;\n}\n.report_info__3Qwq2 .report_info_item_title__KryA7 {\n  width: 45pt;\n  text-align: justify;\n  -moz-text-align-last: justify;\n       text-align-last: justify;\n  display: inline-block;\n}\n.report_imgList_box__2YIs- {\n  margin: 2pt 0;\n  border-bottom: 1pt solid #000;\n}\n.report_imgList_box__2YIs- .report_imgList__2ErRb {\n  margin-top: 2pt;\n  display: flex;\n  justify-content: space-evenly;\n  overflow: hidden;\n  align-items: flex-start;\n  padding-bottom: 8pt;\n}\n.report_imgList_box__2YIs- .report_imgList__2ErRb .report_imgList_item__2-lxH {\n  flex: 1;\n  width: 1px;\n}\n.report_marginRight10__2zHqX {\n  margin-right: 10pt;\n}\n.report_description__bPQgD {\n  width: 100%;\n  flex: 1;\n  padding: 5pt;\n  font-size: 10pt;\n  overflow: hidden;\n}\n.report_say__3KVtu {\n  width: 100%;\n  height: 190pt;\n  padding: 5pt;\n  font-size: 10pt;\n  overflow: hidden;\n}\n.report_foot__jdXym {\n  border-top: 1pt solid #000;\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  overflow: hidden;\n  padding-top: 3pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- {\n  display: flex;\n  justify-content: flex-end;\n  margin-bottom: 2pt;\n}\n.report_foot__jdXym .report_foot_row__1U5F- .report_foot_row_item__m8bNJ {\n  font-size: 11pt;\n  margin-right: 5pt;\n  min-width: 140pt;\n}\n.report_pre__34T-1 {\n  white-space: pre-wrap;\n  word-wrap: break-word;\n  font-size: 11pt;\n}\n.report_reportInfo__2Jd-M {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 5pt;\n  width: 100%;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk {\n  font-size: 11pt;\n  color: #191919;\n}\n.report_reportInfo__2Jd-M .report_reportInfo_item__3typk > span {\n  display: inline-block;\n}\n";
 var styles$4 = {"body":"report_body__3Av0B","boldText":"report_boldText__sXezY","header":"report_header__3Ct38","header_img":"report_header_img__29zjw","header_hospital":"report_header_hospital__1msih","header_title":"report_header_title__3cRcL","info":"report_info__3Qwq2","info_item":"report_info_item__-9kKl","info_item_title":"report_info_item_title__KryA7","imgList_box":"report_imgList_box__2YIs-","imgList":"report_imgList__2ErRb","imgList_item":"report_imgList_item__2-lxH","marginRight10":"report_marginRight10__2zHqX","description":"report_description__bPQgD","say":"report_say__3KVtu","foot":"report_foot__jdXym","foot_row":"report_foot_row__1U5F-","foot_row_item":"report_foot_row_item__m8bNJ","pre":"report_pre__34T-1","reportInfo":"report_reportInfo__2Jd-M","reportInfo_item":"report_reportInfo_item__3typk"};
 styleInject(css$5);
 
@@ -1022,16 +1022,18 @@ var Preview = forwardRef(function (_ref, ref) {
   var hideRender = _ref.hideRender,
       data = _ref.data,
       coverUrl = _ref.coverUrl,
-      footUrl = _ref.footUrl;
+      footUrl = _ref.footUrl,
+      onLoad = _ref.onLoad;
   var divRef = useRef(null); //页面布局计算完毕promise
 
   var pagePromise = usePromise([]); // 即将打印promise
 
   var beforePrintPromise = usePromise([]);
 
-  var onLoad = function onLoad() {
+  var load = function load() {
     console.log("真实dom结构计算完毕");
     pagePromise.res();
+    onLoad && onLoad();
   };
 
   useImperativeHandle(ref, function () {
@@ -1193,7 +1195,7 @@ var Preview = forwardRef(function (_ref, ref) {
   }, React.createElement(Stencil, {
     Data: data,
     type: StencilType.Default,
-    onLoad: onLoad,
+    onLoad: load,
     coverUrl: coverUrl,
     footUrl: footUrl
   }));
