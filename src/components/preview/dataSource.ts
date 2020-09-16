@@ -127,11 +127,11 @@ test1.push({
         value: '000000001E',
       },
     ],
-    basicInfo: ['hospital','number', 'sex', 'date',"licenseNum","name","age","address","type"], //基本信息
+    basicInfo: ['number', 'sex', 'date',"licenseNum","name","age","address","type"], //基本信息
     img: [
       'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
       'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
-      'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
+      // 'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
       // 'https://pic4.zhimg.com/80/v2-94d36b3f5fd4af60da29dee03f9ddce7_1440w.jpg',
     ],
     description:

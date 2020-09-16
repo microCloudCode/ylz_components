@@ -66,7 +66,7 @@ export default ({ data, info }: Props) => {
       {/* 基本信息 */}
       <div className={styles.info}>{infoList}</div>
       {/* 图片 */}
-      {data?.img?.length && <div className={styles.imgList_box}>
+      {data?.img?.length !== 0 && <div className={styles.imgList_box}>
         <div className={styles.boldText}>超声图像：</div>
         <div className={styles.imgList}>{imgList}</div>
       </div>}
