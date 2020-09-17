@@ -27,7 +27,6 @@ export default ({ Data, onLoad, onError }: Props) => {
     loadList: [],//等待计算项
   })
   useEffect(() => {
-    console.log(current.loadList)
     current.loadList = []
     calculatedPromise.promise.then(async e => {//分布计算完毕
       await Promise.all(current.loadList)//全部计算完毕

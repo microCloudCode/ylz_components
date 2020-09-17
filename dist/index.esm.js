@@ -348,18 +348,25 @@ function cropTable(arr, htmlList, MaxHeight) {
 }
 
 function usePageList(page, getHeight, getHtmlList, calculatedPromise) {
+  var firstUpdate = useRef(true);
+
   var _useRef = useRef({
     index: 0
   }),
       current = _useRef.current;
 
-  var _useState = useState([]),
+  var _useState = useState(page.length === 0 ? [] : [[page[current.index]]]),
       _useState2 = _slicedToArray(_useState, 2),
       pageList = _useState2[0],
       setPageList = _useState2[1]; //页面数组
 
 
   useEffect(function () {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+
     console.log("重新计算:", page);
     current.index = 0; //重置
 
@@ -683,7 +690,6 @@ var Page = (function (_ref) {
       current = _useRef.current;
 
   useEffect(function () {
-    console.log(current.loadList);
     current.loadList = [];
     calculatedPromise.promise.then( /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
@@ -721,7 +727,7 @@ var Page = (function (_ref) {
   };
 
   var getHtmlList = function getHtmlList(pageIdx, index) {
-    //获取已选染TableDOM
+    //获取已渲染TableDOM
     var dom = document.getElementById("page".concat(pageIdx));
     var itemDom = dom === null || dom === void 0 ? void 0 : dom.children[index];
     var list = itemDom === null || itemDom === void 0 ? void 0 : itemDom.getElementsByClassName(tableStyles.table)[0].children[1].children;
@@ -1036,6 +1042,7 @@ var Preview = forwardRef(function (_ref, ref) {
       footUrl = _ref.footUrl,
       onLoad = _ref.onLoad,
       onError = _ref.onError;
+  var firstUpdate = useRef(true);
 
   var _useState = useState(function () {
     return _objectSpread2(_objectSpread2({}, Data), {}, {
@@ -1047,6 +1054,11 @@ var Preview = forwardRef(function (_ref, ref) {
       setData = _useState2[1];
 
   useEffect(function () {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+
     setData(_objectSpread2(_objectSpread2({}, Data), {}, {
       page: PageToPrintList(Data.page)
     }));

@@ -1,7 +1,7 @@
 import React, {
   useRef,
   forwardRef,
-  useImperativeHandle, useState, useEffect
+  useImperativeHandle, useState, useEffect, useLayoutEffect
 } from 'react';
 import styles from './index.less';
 import Stencil, { StencilType } from './component/stencil';
@@ -47,16 +47,21 @@ async function html2Base64(html: HTMLElement) {
 
 export default forwardRef<PreviewRef, Props>(
   ({ hideRender, Data, coverUrl, footUrl, onLoad, onError }: Props, ref) => {
+    const firstUpdate = useRef(true)
     const [data, setData] = useState(() => ({
       ...Data,
       page: PageToPrintList(Data.page)
     }))
-    useEffect(()=>{
+    useEffect(() => {
+      if (firstUpdate.current) {
+        firstUpdate.current = false
+        return
+      }
       setData({
         ...Data,
         page: PageToPrintList(Data.page)
       })
-    },[Data])
+    }, [Data])
     const divRef = useRef<HTMLDivElement>(null);
     //页面布局计算完毕promise
     const pagePromise = usePromise([data]);

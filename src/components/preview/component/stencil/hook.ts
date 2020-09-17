@@ -50,12 +50,17 @@ export function usePageList(
     rej: (reason?: any) => void;
   },
 ) {
+  const firstUpdate = useRef(true)
   const { current } = useRef({
     index: 0, //当前计算的索引标识
   });
-  const [pageList, setPageList] = useState<PageValue[][]>([]); //页面数组
+  const [pageList, setPageList] = useState<PageValue[][]>(page.length === 0 ? [] : [[page[current.index]]]); //页面数组
 
   useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false
+      return
+    }
     console.log("重新计算:", page)
     current.index = 0;//重置
     setPageList(page.length === 0 ? [] : [[page[current.index]]])
