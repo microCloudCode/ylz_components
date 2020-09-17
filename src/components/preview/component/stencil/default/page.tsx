@@ -27,19 +27,19 @@ export default ({ Data, onLoad, onError }: Props) => {
     loadList: [],//等待计算项
   })
   useEffect(() => {
+    console.log(current.loadList)
     current.loadList = []
     calculatedPromise.promise.then(async e => {//分布计算完毕
-      console.log(1231)
       await Promise.all(current.loadList)//全部计算完毕
       onLoad && onLoad()
     }).catch(e => {
       onError && onError()
     })
   }, [Data])
-  const getHeight = (index: number) => document.getElementById(`page${index-1}`)?.clientHeight;
+  const getHeight = (index: number) => document.getElementById(`page${index}`)?.clientHeight;
   const getHtmlList = (pageIdx: number, index: number) => {
-    //获取已选染TableDOM
-    let dom = document.getElementById(`page${pageIdx - 1}`)
+    //获取已渲染TableDOM
+    let dom = document.getElementById(`page${pageIdx}`)
     const itemDom = dom?.children[index];
     const list = itemDom?.getElementsByClassName(tableStyles.table)[0].children[1].children
     return {

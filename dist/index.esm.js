@@ -194,8 +194,8 @@ var css = ".index_body__3JAOh {\n  overflow: hidden;\n}\n.index_hide__3iZps {\n 
 var styles = {"body":"index_body__3JAOh","hide":"index_hide__3iZps","printWindows":"index_printWindows__3Ed8x"};
 styleInject(css);
 
-var css$1 = ".default_cover__35pLu {\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n}\n.default_A4__2EGX9 {\n  background-color: #ffffff;\n  height: 288.54mm;\n  width: 201.54mm;\n  overflow: hidden;\n  margin-bottom: 10px;\n  display: flex;\n  flex-direction: column;\n}\n.default_row__2v7At {\n  background: red;\n}\n@media print {\n  .default_A4__2EGX9 {\n    page-break-after: always;\n    margin-bottom: 0;\n  }\n}\n/*纸张设置为宽1200px 高800px*/\n@page {\n  size: A4;\n  margin: 4.23mm;\n}\n";
-var styles$1 = {"cover":"default_cover__35pLu","A4":"default_A4__2EGX9","row":"default_row__2v7At"};
+var css$1 = ".index_cover__13mu8 {\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n}\n.index_A4__3Xbf0 {\n  background-color: #ffffff;\n  height: 288.54mm;\n  width: 201.54mm;\n  overflow: hidden;\n  margin-bottom: 10px;\n  display: flex;\n  flex-direction: column;\n}\n.index_row__ZqPFq {\n  background: red;\n}\n@media print {\n  .index_A4__3Xbf0 {\n    page-break-after: always;\n    margin-bottom: 0;\n  }\n}\n/*纸张设置为宽1200px 高800px*/\n@page {\n  size: A4;\n  margin: 4.23mm;\n}\n";
+var styles$1 = {"cover":"index_cover__13mu8","A4":"index_A4__3Xbf0","row":"index_row__ZqPFq"};
 styleInject(css$1);
 
 var css$2 = ".cover_header__HuYVq {\n  height: 9.6pt;\n  background: linear-gradient(-90deg, #8ed9e7, #37c0bc, #f6845b);\n  width: 100%;\n}\n.cover_cover_title__3Pp-E {\n  margin-top: 40pt;\n}\n.cover_cover_title__3Pp-E .cover_cover_title_text__YIX5O {\n  font-size: 34pt;\n  font-family: Source Han Sans SC;\n  font-weight: 400;\n  color: #37c0bc;\n}\n.cover_cover_tips__2xR-M {\n  display: flex;\n  flex-direction: column;\n  margin-top: 48pt;\n  text-align: center;\n}\n.cover_cover_tips__2xR-M .cover_cover_tips_en__2WMKX {\n  font-size: 19pt;\n  font-family: Lato;\n  font-weight: 400;\n  color: #37c0bc;\n}\n.cover_cover_tips__2xR-M .cover_cover_tips_cn__1CQVD {\n  font-size: 48pt;\n  font-family: Source Han Sans SC;\n  font-weight: bold;\n  color: #37c0bc;\n}\n.cover_cover_box__1fare {\n  background: #ffffff;\n  border: 1pt solid #37c0bc;\n  padding: 25pt 37pt;\n  border-radius: 10pt;\n  margin-top: 63pt;\n}\n.cover_cover_box__1fare .cover_cover_box_title__3F1O4 {\n  font-size: 14pt;\n  font-weight: bold;\n  color: #2a3030;\n  width: 61pt;\n  display: inline-block;\n  text-align: justify;\n  -moz-text-align-last: justify;\n       text-align-last: justify;\n}\n.cover_cover_box__1fare .cover_cover_box_colon__34lI- {\n  color: #2a3030;\n  font-size: 14pt;\n  font-weight: bold;\n}\n.cover_cover_box__1fare .cover_cover_box_text__2-v6z {\n  font-size: 13pt;\n  color: #2a3030;\n  margin-left: 13pt;\n  display: inline-block;\n}\n.cover_cover_img__1FM7f {\n  width: 100%;\n  height: 248pt;\n  position: relative;\n  margin-top: auto;\n}\n.cover_cover_img__1FM7f .cover_cover_img_bg__3ewkd {\n  width: 100%;\n  height: 100%;\n}\n.cover_cover_img__1FM7f .cover_cover_img_tips__3FzkJ {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n}\n.cover_cover_img__1FM7f .cover_cover_img_tips__3FzkJ .cover_cover_img_tips_text__CmVQu {\n  font-size: 8pt;\n  color: #ffffff;\n  margin-left: 177pt;\n  margin-bottom: 5pt;\n  display: inline-block;\n}\n";
@@ -207,20 +207,20 @@ styleInject(css$2);
  */
 
 var Cover = (function (_ref) {
-  var _Data$info$data, _Data$info$data$hospi;
+  var _Data$data, _Data$data$hospital;
 
   var Data = _ref.Data,
       coverUrl = _ref.coverUrl;
-  var info = Data.info.cover.map(function (e) {
+  var info = Data.cover.map(function (e) {
     return React.createElement("div", {
       key: e
     }, React.createElement("span", {
       className: styles$2.cover_box_title
-    }, Data.info.data[e].title), React.createElement("span", {
+    }, Data.data[e].title), React.createElement("span", {
       className: styles$2.cover_box_colon
     }, ":"), React.createElement("span", {
       className: styles$2.cover_box_text
-    }, Data.info.data[e].data));
+    }, Data.data[e].data));
   });
   return React.createElement(React.Fragment, null, React.createElement("div", {
     className: styles$2.header
@@ -228,7 +228,7 @@ var Cover = (function (_ref) {
     className: styles$2.cover_title
   }, React.createElement("span", {
     className: styles$2.cover_title_text
-  }, (_Data$info$data = Data.info.data) === null || _Data$info$data === void 0 ? void 0 : (_Data$info$data$hospi = _Data$info$data.hospital) === null || _Data$info$data$hospi === void 0 ? void 0 : _Data$info$data$hospi.data)), React.createElement("div", {
+  }, (_Data$data = Data.data) === null || _Data$data === void 0 ? void 0 : (_Data$data$hospital = _Data$data.hospital) === null || _Data$data$hospital === void 0 ? void 0 : _Data$data$hospital.data)), React.createElement("div", {
     className: styles$2.cover_tips
   }, React.createElement("span", {
     className: styles$2.cover_tips_en
@@ -239,8 +239,6 @@ var Cover = (function (_ref) {
   }, info), React.createElement("div", {
     className: styles$2.cover_img
   }, React.createElement("img", {
-    // crossOrigin="anonymous"
-    // src={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
     src: coverUrl,
     className: styles$2.cover_img_bg
   }), React.createElement("div", {
@@ -349,17 +347,24 @@ function cropTable(arr, htmlList, MaxHeight) {
   return arr;
 }
 
-function usePageList(Data, getHeight, getHtmlList, calculatedPromise) {
-  var El = useRef({
+function usePageList(page, getHeight, getHtmlList, calculatedPromise) {
+  var _useRef = useRef({
     index: 0
-  });
+  }),
+      current = _useRef.current;
 
-  var _useState = useState(Data.page.length === 0 ? [] : [[Data.page[El.current.index]]]),
+  var _useState = useState([]),
       _useState2 = _slicedToArray(_useState, 2),
       pageList = _useState2[0],
       setPageList = _useState2[1]; //页面数组
 
 
+  useEffect(function () {
+    console.log("重新计算:", page);
+    current.index = 0; //重置
+
+    setPageList(page.length === 0 ? [] : [[page[current.index]]]);
+  }, [page]);
   useEffect(function () {
     if (pageList.length === 0) {
       calculatedPromise.res('绘制完毕');
@@ -367,16 +372,16 @@ function usePageList(Data, getHeight, getHtmlList, calculatedPromise) {
     }
 
     var arr = JSON.parse(JSON.stringify(pageList));
-    var height = getHeight(); //获取高度
+    var height = getHeight(pageList.length - 1); //获取高度
 
     var lastArr = arr[arr.length - 1];
-    var lastItem = lastArr[lastArr.length - 1]; // 判断是否超出边界
+    var lastItem = lastArr[lastArr.length - 1]; //表格
 
     if (lastItem.type === ComponentType.Table) {
       var _itemDom$content, _itemDom$content2;
 
-      //表格
-      var itemDom = getHtmlList(lastArr.length - 1);
+      // 判断是否超出边界
+      var itemDom = getHtmlList(pageList.length - 1, lastArr.length - 1);
       var itemDomPos = ((_itemDom$content = itemDom.content) === null || _itemDom$content === void 0 ? void 0 : _itemDom$content.clientHeight) + (itemDom === null || itemDom === void 0 ? void 0 : (_itemDom$content2 = itemDom.content) === null || _itemDom$content2 === void 0 ? void 0 : _itemDom$content2.offsetTop);
 
       if (height && itemDomPos > height && itemDom.list) {
@@ -388,14 +393,14 @@ function usePageList(Data, getHeight, getHtmlList, calculatedPromise) {
     } // 坐标已到达极限
 
 
-    if (El.current.index >= Data.page.length - 1) {
+    if (current.index >= page.length - 1) {
       calculatedPromise.res('绘制完毕');
       return;
     } // 移动坐标，继续绘制
 
 
-    ++El.current.index;
-    var item = Data.page[El.current.index]; //取出要渲染的项
+    ++current.index;
+    var item = page[current.index]; //取出要渲染的项
 
     if (item.isNewPage || lastItem.isNewPage) {
       arr.push([item]); //创建新页
@@ -645,27 +650,80 @@ function createPromise() {
   };
 }
 
+function usePromise() {
+  var arr = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  return useMemo(function () {
+    var res = null;
+    var rej = null;
+    var promise = new Promise(function (resolve, reject) {
+      res = resolve;
+      rej = reject;
+    });
+    return {
+      promise: promise,
+      res: res,
+      rej: rej
+    };
+  }, arr);
+}
+
 /**
  * 默认的渲染模版
  */
 
 var Page = (function (_ref) {
   var Data = _ref.Data,
-      calculatedPromise = _ref.calculatedPromise,
-      pushLoadItem = _ref.pushLoadItem;
-  var divEl = useRef(null);
+      onLoad = _ref.onLoad,
+      onError = _ref.onError;
+  var calculatedPromise = usePromise([Data]); //页面元素分布计算完成
 
-  var getHeight = function getHeight() {
-    var _divEl$current;
+  var _useRef = useRef({
+    loadList: []
+  }),
+      current = _useRef.current;
 
-    return (_divEl$current = divEl.current) === null || _divEl$current === void 0 ? void 0 : _divEl$current.clientHeight;
+  useEffect(function () {
+    console.log(current.loadList);
+    current.loadList = [];
+    calculatedPromise.promise.then( /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return Promise.all(current.loadList);
+
+              case 2:
+                //全部计算完毕
+                onLoad && onLoad();
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref2.apply(this, arguments);
+      };
+    }()).catch(function (e) {
+      onError && onError();
+    });
+  }, [Data]);
+
+  var getHeight = function getHeight(index) {
+    var _document$getElementB;
+
+    return (_document$getElementB = document.getElementById("page".concat(index))) === null || _document$getElementB === void 0 ? void 0 : _document$getElementB.clientHeight;
   };
 
-  var getHtmlList = function getHtmlList(index) {
-    var _divEl$current2;
-
+  var getHtmlList = function getHtmlList(pageIdx, index) {
     //获取已选染TableDOM
-    var itemDom = (_divEl$current2 = divEl.current) === null || _divEl$current2 === void 0 ? void 0 : _divEl$current2.children[index];
+    var dom = document.getElementById("page".concat(pageIdx));
+    var itemDom = dom === null || dom === void 0 ? void 0 : dom.children[index];
     var list = itemDom === null || itemDom === void 0 ? void 0 : itemDom.getElementsByClassName(tableStyles.table)[0].children[1].children;
     return {
       content: itemDom,
@@ -673,7 +731,7 @@ var Page = (function (_ref) {
     };
   };
 
-  var _usePageList = usePageList(Data, getHeight, getHtmlList, calculatedPromise),
+  var _usePageList = usePageList(Data.page, getHeight, getHtmlList, calculatedPromise),
       _usePageList2 = _slicedToArray(_usePageList, 1),
       pageList = _usePageList2[0]; //计算页面元素分布
   // 项目
@@ -707,7 +765,7 @@ var Page = (function (_ref) {
             return promise.res();
           },
           onStart: function onStart() {
-            return pushLoadItem(promise.promise);
+            return current.loadList.push(promise.promise);
           }
         }), React.createElement(Pos, {
           data: _data.pos
@@ -737,7 +795,7 @@ var Page = (function (_ref) {
       className: styles$3.br
     }), index === 0 && detailsInfo(Data), React.createElement("div", {
       className: styles$3.page_content,
-      ref: divEl
+      id: "page".concat(index)
     }, pageItem(e)), e[0].isHideFoot !== true && React.createElement("div", {
       className: styles$3.foot_br
     }), e[0].isHideFoot !== true && foot(index + 1, arr.length));
@@ -872,19 +930,23 @@ var Foot = (function (_ref) {
 
 var Default = (function (_ref) {
   var Data = _ref.Data,
-      calculatedPromise = _ref.calculatedPromise,
-      pushLoadItem = _ref.pushLoadItem,
       coverUrl = _ref.coverUrl,
-      footUrl = _ref.footUrl;
+      footUrl = _ref.footUrl,
+      _onLoad = _ref.onLoad,
+      _onError = _ref.onError;
   return React.createElement(React.Fragment, null, React.createElement("div", {
     className: "".concat(styles$1.cover, " ").concat(styles$1.A4)
   }, React.createElement(Cover, {
-    Data: Data,
+    Data: Data.info,
     coverUrl: coverUrl
   })), React.createElement(Page, {
     Data: Data,
-    calculatedPromise: calculatedPromise,
-    pushLoadItem: pushLoadItem
+    onLoad: function onLoad() {
+      return _onLoad && _onLoad();
+    },
+    onError: function onError() {
+      return _onError && _onError();
+    }
   }), React.createElement("div", {
     className: "".concat(styles$1.A4)
   }, React.createElement(Foot, {
@@ -892,23 +954,6 @@ var Default = (function (_ref) {
     footUrl: footUrl
   })));
 });
-
-function usePromise() {
-  var arr = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  return useMemo(function () {
-    var res = null;
-    var rej = null;
-    var promise = new Promise(function (resolve, reject) {
-      res = resolve;
-      rej = reject;
-    });
-    return {
-      promise: promise,
-      res: res,
-      rej: rej
-    };
-  }, arr);
-}
 
 var StencilType;
 
@@ -920,55 +965,21 @@ var Stencil = (function (_ref) {
   var _ref$type = _ref.type,
       type = _ref$type === void 0 ? StencilType.Default : _ref$type,
       Data = _ref.Data,
-      onLoad = _ref.onLoad,
+      _onLoad = _ref.onLoad,
+      _onError = _ref.onError,
       coverUrl = _ref.coverUrl,
       footUrl = _ref.footUrl;
-
-  var _useRef = useRef({
-    loadList: []
-  }),
-      current = _useRef.current;
-
-  var calculatedPromise = usePromise([]); //页面元素分布计算完成
-
-  var pushLoadItem = function pushLoadItem(item) {
-    current.loadList.push(item);
-  };
-
-  useEffect(function () {
-    calculatedPromise.promise.then( /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return Promise.all(current.loadList);
-
-              case 2:
-                //全部计算完毕
-                onLoad();
-
-              case 3:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      return function (_x) {
-        return _ref2.apply(this, arguments);
-      };
-    }());
-  }, []);
 
   switch (type) {
     case StencilType.Default:
       return React.createElement(Default, {
         Data: Data,
-        calculatedPromise: calculatedPromise,
-        pushLoadItem: pushLoadItem,
+        onLoad: function onLoad() {
+          return _onLoad();
+        },
+        onError: function onError() {
+          return _onError();
+        },
         coverUrl: coverUrl,
         footUrl: footUrl
       });
@@ -1020,20 +1031,41 @@ function _html2Base() {
 
 var Preview = forwardRef(function (_ref, ref) {
   var hideRender = _ref.hideRender,
-      data = _ref.data,
+      Data = _ref.Data,
       coverUrl = _ref.coverUrl,
       footUrl = _ref.footUrl,
-      onLoad = _ref.onLoad;
+      onLoad = _ref.onLoad,
+      onError = _ref.onError;
+
+  var _useState = useState(function () {
+    return _objectSpread2(_objectSpread2({}, Data), {}, {
+      page: PageToPrintList(Data.page)
+    });
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1];
+
+  useEffect(function () {
+    setData(_objectSpread2(_objectSpread2({}, Data), {}, {
+      page: PageToPrintList(Data.page)
+    }));
+  }, [Data]);
   var divRef = useRef(null); //页面布局计算完毕promise
 
-  var pagePromise = usePromise([]); // 即将打印promise
+  var pagePromise = usePromise([data]); // 即将打印promise
 
-  var beforePrintPromise = usePromise([]);
+  var beforePrintPromise = usePromise([data]);
 
   var load = function load() {
-    console.log("真实dom结构计算完毕");
+    console.log("计算完毕");
     pagePromise.res();
     onLoad && onLoad();
+  };
+
+  var error = function error() {
+    pagePromise.rej();
+    onError && onError();
   };
 
   useImperativeHandle(ref, function () {
@@ -1196,10 +1228,33 @@ var Preview = forwardRef(function (_ref, ref) {
     Data: data,
     type: StencilType.Default,
     onLoad: load,
+    onError: error,
     coverUrl: coverUrl,
     footUrl: footUrl
   }));
-});
+}); // 去除不打印数据
+
+function PageToPrintList(page) {
+  var arr = JSON.parse(JSON.stringify(page));
+  var list = arr.filter(function (e) {
+    return e.isPrint;
+  });
+  return list.map(function (e) {
+    if (e.type === ComponentType.Table) {
+      var table = e.data;
+      var data = table.data.filter(function (e) {
+        return e.isPrint;
+      });
+      return _objectSpread2(_objectSpread2({}, e), {}, {
+        data: _objectSpread2(_objectSpread2({}, e.data), {}, {
+          data: data
+        })
+      });
+    }
+
+    return e;
+  });
+}
 
 var css$9 = ".index_drawer__3OjhR {\n  position: fixed;\n  right: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: flex-end;\n  z-index: 2;\n}\n.index_body__1HyO4 {\n  display: flex;\n  flex-direction: column;\n}\n.index_header__3alTr {\n  width: 100%;\n  background-color: #fff;\n  height: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 20px;\n}\n.index_content__O5mRo {\n  height: 100%;\n  overflow-y: scroll;\n}\n";
 var styles$8 = {"drawer":"index_drawer__3OjhR","body":"index_body__1HyO4","header":"index_header__3alTr","content":"index_content__O5mRo"};
@@ -1236,28 +1291,6 @@ var css$a = "";
 var styles$9 = {};
 styleInject(css$a);
 
-function PageToPrintList(page) {
-  var arr = JSON.parse(JSON.stringify(page));
-  var list = arr.filter(function (e) {
-    return e.isPrint;
-  });
-  return list.map(function (e) {
-    if (e.type === ComponentType.Table) {
-      var table = e.data;
-      var data = table.data.filter(function (e) {
-        return e.isPrint;
-      });
-      return _objectSpread2(_objectSpread2({}, e), {}, {
-        data: _objectSpread2(_objectSpread2({}, e.data), {}, {
-          data: data
-        })
-      });
-    }
-
-    return e;
-  });
-}
-
 var index = forwardRef(function (_ref, ref) {
   var coverUrl = _ref.coverUrl,
       footUrl = _ref.footUrl;
@@ -1282,19 +1315,11 @@ var index = forwardRef(function (_ref, ref) {
   useImperativeHandle(ref, function () {
     return {
       open: function open(data) {
-        setData({
-          info: data.info,
-          page: PageToPrintList(data.page),
-          foot: data.foot
-        });
+        setData(data);
         setVisible(true);
       },
       print: function print(data) {
-        setData({
-          info: data.info,
-          page: PageToPrintList(data.page),
-          foot: data.foot
-        });
+        setData(data);
         setIsPrint(true);
       }
     };
@@ -1334,12 +1359,12 @@ var index = forwardRef(function (_ref, ref) {
   }, React.createElement(Preview, {
     ref: previewRef,
     hideRender: false,
-    data: data,
+    Data: data,
     coverUrl: coverUrl,
     footUrl: footUrl
   })), isPrint && React.createElement(Preview, {
     ref: hidePreviewRef,
-    data: data,
+    Data: data,
     hideRender: isPrint,
     coverUrl: coverUrl,
     footUrl: footUrl
