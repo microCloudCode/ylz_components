@@ -1084,39 +1084,59 @@ var Preview = forwardRef(function (_ref, ref) {
     return {
       print: function () {
         var _print = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-          var hide;
+          var key;
           return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  hide = message.loading('绘制中...', 0);
-                  _context.next = 3;
+                  key = 'print';
+                  message.loading({
+                    content: '绘制中...',
+                    key: key
+                  });
+                  _context.prev = 2;
+                  _context.next = 5;
                   return pagePromise.promise;
 
-                case 3:
+                case 5:
                   _context.t0 = handlePrint;
 
                   if (!_context.t0) {
-                    _context.next = 7;
+                    _context.next = 9;
                     break;
                   }
 
-                  _context.next = 7;
+                  _context.next = 9;
                   return handlePrint();
 
-                case 7:
-                  _context.next = 9;
+                case 9:
+                  _context.next = 11;
                   return beforePrintPromise.promise;
 
-                case 9:
-                  hide();
+                case 11:
+                  message.success({
+                    content: '绘制成功!',
+                    key: key,
+                    duration: 2
+                  });
+                  _context.next = 17;
+                  break;
 
-                case 10:
+                case 14:
+                  _context.prev = 14;
+                  _context.t1 = _context["catch"](2);
+                  message.error({
+                    content: '绘制错误!',
+                    key: key,
+                    duration: 2
+                  });
+
+                case 17:
                 case "end":
                   return _context.stop();
               }
             }
-          }, _callee);
+          }, _callee, null, [[2, 14]]);
         }));
 
         function print() {
@@ -1127,28 +1147,48 @@ var Preview = forwardRef(function (_ref, ref) {
       }(),
       pdf: function () {
         var _pdf = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-          var hide;
+          var key;
           return regeneratorRuntime.wrap(function _callee2$(_context2) {
             while (1) {
               switch (_context2.prev = _context2.next) {
                 case 0:
-                  hide = message.loading('生成中...', 0);
-                  _context2.next = 3;
+                  key = 'pdf';
+                  message.loading({
+                    content: '生成中...',
+                    key: key
+                  });
+                  _context2.prev = 2;
+                  _context2.next = 5;
                   return pagePromise.promise;
 
-                case 3:
-                  _context2.next = 5;
+                case 5:
+                  _context2.next = 7;
                   return handlePdf();
 
-                case 5:
-                  hide();
+                case 7:
+                  message.success({
+                    content: '成功!',
+                    key: key,
+                    duration: 2
+                  });
+                  _context2.next = 13;
+                  break;
 
-                case 6:
+                case 10:
+                  _context2.prev = 10;
+                  _context2.t0 = _context2["catch"](2);
+                  message.error({
+                    content: '错误!',
+                    key: key,
+                    duration: 2
+                  });
+
+                case 13:
                 case "end":
                   return _context2.stop();
               }
             }
-          }, _callee2);
+          }, _callee2, null, [[2, 10]]);
         }));
 
         function pdf() {
