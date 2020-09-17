@@ -79,17 +79,27 @@ export default forwardRef<PreviewRef, Props>(
     }
     useImperativeHandle(ref, () => ({
       print: async () => {
-        let hide = message.loading('绘制中...', 0);
-        await pagePromise.promise;
-        handlePrint && (await handlePrint());
-        await beforePrintPromise.promise;
-        hide();
+        const key = 'print';
+        message.loading({ content: '绘制中...', key });
+        try {
+          await pagePromise.promise;
+          handlePrint && (await handlePrint());
+          await beforePrintPromise.promise;
+          message.success({ content: '绘制成功!', key, duration: 2 });
+        } catch (err) {
+          message.error({ content: '绘制错误!', key, duration: 2 });
+        }
       },
       pdf: async () => {
-        let hide = message.loading('生成中...', 0);
-        await pagePromise.promise;
-        await handlePdf();
-        hide();
+        const key = 'pdf';
+        message.loading({ content: '生成中...', key });
+        try{
+          await pagePromise.promise;
+          await handlePdf();
+          message.success({ content: '成功!', key, duration: 2 });
+        }catch(err){
+          message.error({ content: '错误!', key, duration: 2 });
+        }
       },
     }));
 
