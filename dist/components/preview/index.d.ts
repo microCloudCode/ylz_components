@@ -9,10 +9,11 @@ export interface PreviewRef {
 }
 interface Props {
     hideRender: boolean;
-    data: PrintDataModelState;
+    Data: PrintDataModelState;
     coverUrl: string;
     footUrl: string;
     onLoad?: () => void;
+    onError?: () => void;
 }
 declare const _default: React.ForwardRefExoticComponent<Props & React.RefAttributes<PreviewRef>>;
 export default _default;

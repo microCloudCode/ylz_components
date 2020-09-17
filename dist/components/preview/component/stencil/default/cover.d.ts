@@ -1,7 +1,7 @@
 /// <reference types="react" />
-import { PrintDataModelState } from '@/components/preview/type';
+import { InfoDataModelState } from '@/components/preview/type';
 interface Props {
-    Data: PrintDataModelState;
+    Data: InfoDataModelState;
     coverUrl: string;
 }
 declare const _default: ({ Data, coverUrl }: Props) => JSX.Element;
