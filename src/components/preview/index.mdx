@@ -20,20 +20,17 @@ import { Button } from "antd";
 
 <Playground>
   {() => {
-    const [data, setData] = React.useState(Data); //页面数组
+    const [data, setData] = React.useState([Data]); //页面数组
     const tap = () => {
-      let arr = JSON.parse(JSON.stringify(data));
-      arr.page[0].data.title = "1";
-      arr.page[5].isPrint=false
-      console.log(arr)
-      setData(arr);
+      setData(data.concat([1]));
     };
+    console.log(data)
     return (
       <div>
         <Button onClick={tap}>点击</Button>
         <Preview
           hideRender={false}
-          Data={data}
+          Data={data[0]}
           onLoad={()=>console.log("我结束了")}
           coverUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
           footUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm1.png"}

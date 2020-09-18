@@ -53,6 +53,7 @@ export default memo(forwardRef<PreviewRef, Props>(
       page: PageToPrintList(Data.page)
     }))
     useEffect(() => {
+      console.log("开始计算")
       if (firstUpdate.current) {
         firstUpdate.current = false
         return

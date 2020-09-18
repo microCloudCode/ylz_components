@@ -1054,6 +1054,8 @@ var Preview = memo(forwardRef(function (_ref, ref) {
       setData = _useState2[1];
 
   useEffect(function () {
+    console.log("开始计算");
+
     if (firstUpdate.current) {
       firstUpdate.current = false;
       return;
