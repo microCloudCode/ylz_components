@@ -1,7 +1,7 @@
 import React, {
   useRef,
   forwardRef,
-  useImperativeHandle, useState, useEffect, useLayoutEffect
+  useImperativeHandle, useState, useEffect, useLayoutEffect, memo
 } from 'react';
 import styles from './index.less';
 import Stencil, { StencilType } from './component/stencil';
@@ -45,7 +45,7 @@ async function html2Base64(html: HTMLElement) {
   return base64;
 }
 
-export default forwardRef<PreviewRef, Props>(
+export default memo(forwardRef<PreviewRef, Props>(
   ({ hideRender, Data, coverUrl, footUrl, onLoad, onError }: Props, ref) => {
     const firstUpdate = useRef(true)
     const [data, setData] = useState(() => ({
@@ -151,7 +151,7 @@ export default forwardRef<PreviewRef, Props>(
       </div>
     );
   },
-);
+));
 
 // 去除不打印数据
 function PageToPrintList(page: PageValue[]) {

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo, forwardRef, useImperativeHandle } from 'react';
+import React, { useRef, useState, useEffect, useMemo, memo, forwardRef, useImperativeHandle } from 'react';
 import Barcode from 'react-barcode';
 import { message, Space, Button } from 'antd';
 import { useReactToPrint } from 'react-to-print';
@@ -1035,7 +1035,7 @@ function _html2Base() {
   return _html2Base.apply(this, arguments);
 }
 
-var Preview = forwardRef(function (_ref, ref) {
+var Preview = memo(forwardRef(function (_ref, ref) {
   var hideRender = _ref.hideRender,
       Data = _ref.Data,
       coverUrl = _ref.coverUrl,
@@ -1284,7 +1284,7 @@ var Preview = forwardRef(function (_ref, ref) {
     coverUrl: coverUrl,
     footUrl: footUrl
   }));
-}); // 去除不打印数据
+})); // 去除不打印数据
 
 function PageToPrintList(page) {
   var arr = JSON.parse(JSON.stringify(page));

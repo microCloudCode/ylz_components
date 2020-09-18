@@ -15,5 +15,5 @@ interface Props {
     onLoad?: () => void;
     onError?: () => void;
 }
-declare const _default: React.ForwardRefExoticComponent<Props & React.RefAttributes<PreviewRef>>;
+declare const _default: React.MemoExoticComponent<React.ForwardRefExoticComponent<Props & React.RefAttributes<PreviewRef>>>;
 export default _default;
