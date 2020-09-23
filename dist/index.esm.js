@@ -601,11 +601,12 @@ var rotate = function rotate(img) {
 
   context.rotate(rotation); //绘制图片
 
-  context.drawImage(img, 0, 0, w, h); //获取Blob对象
+  context.drawImage(img, 0, 0, w, h); //base64
 
-  canvas.toBlob(function (blob) {
-    res(URL.createObjectURL(blob));
-  });
+  res(canvas.toDataURL()); //获取Blob对象
+  // canvas.toBlob((blob) => {
+  //   res(URL.createObjectURL(blob))
+  // })
 };
 
 var css$7 = ".pos_item__3R7Pr {\n  transform: rotate(90deg);\n  transform-origin: 0 0;\n  position: absolute;\n}\n.pos_text__1Kwpz {\n  font-size: 8pt;\n  font-weight: 600;\n  color: #666;\n}\n.pos_img__25PlX {\n  width: 100pt;\n  height: 100pt;\n}\n.pos_bg__3-3cv {\n  position: absolute;\n  width: 63pt;\n  height: 111pt;\n  background-color: #fff;\n  left: 83%;\n  top: 53%;\n}\n";
