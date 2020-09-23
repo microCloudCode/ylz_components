@@ -82,10 +82,10 @@ const rotate = function (img: HTMLImageElement, rot = 0, res: (value?: string) =
   context.drawImage(img, 0, 0, w, h);
 
   //base64
-  res(canvas.toDataURL())
+  // res(canvas.toDataURL())
   //获取Blob对象
-  // canvas.toBlob((blob) => {
-  //   res(URL.createObjectURL(blob))
-  // })
+  canvas.toBlob((blob) => {
+    res(URL.createObjectURL(blob))
+  })
 }
 
