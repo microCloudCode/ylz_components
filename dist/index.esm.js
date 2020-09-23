@@ -608,8 +608,8 @@ var rotate = function rotate(img) {
   });
 };
 
-var css$7 = ".pos_item__3R7Pr {\n  transform: rotate(90deg);\n  transform-origin: 0 0;\n  position: absolute;\n}\n.pos_text__1Kwpz {\n  font-size: 8pt;\n  font-weight: 600;\n  color: #666;\n}\n.pos_img__25PlX {\n  width: 100pt;\n  height: 100pt;\n}\n";
-var styles$6 = {"item":"pos_item__3R7Pr","text":"pos_text__1Kwpz","img":"pos_img__25PlX"};
+var css$7 = ".pos_item__3R7Pr {\n  transform: rotate(90deg);\n  transform-origin: 0 0;\n  position: absolute;\n}\n.pos_text__1Kwpz {\n  font-size: 8pt;\n  font-weight: 600;\n  color: #666;\n}\n.pos_img__25PlX {\n  width: 100pt;\n  height: 100pt;\n}\n.pos_bg__3-3cv {\n  position: absolute;\n  width: 63pt;\n  height: 111pt;\n  background-color: #fff;\n  left: 83%;\n  top: 53%;\n}\n";
+var styles$6 = {"item":"pos_item__3R7Pr","text":"pos_text__1Kwpz","img":"pos_img__25PlX","bg":"pos_bg__3-3cv"};
 styleInject(css$7);
 
 var Pos = (function (_ref) {
@@ -640,7 +640,9 @@ var Pos = (function (_ref) {
 
     return null;
   });
-  return React.createElement(React.Fragment, null, arr);
+  return React.createElement(React.Fragment, null, React.createElement("div", {
+    className: styles$6.bg
+  }), arr);
 });
 
 function createPromise() {

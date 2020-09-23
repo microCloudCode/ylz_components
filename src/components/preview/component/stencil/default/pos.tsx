@@ -13,7 +13,6 @@ interface Props {
 
 
 export default ({ data = [] }: Props) => {
-
   const arr = data.map((e, i) => {
     let pos = {
       left: `${e.x}%`,
@@ -29,6 +28,9 @@ export default ({ data = [] }: Props) => {
     return null;
   })
   return (
-    <>{arr}</>
+    <>
+    <div className={styles.bg}></div>
+    {arr}
+    </>
   );
 };
