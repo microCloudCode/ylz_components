@@ -30,6 +30,7 @@ export default ({ data = [] }: Props) => {
   return (
     <>
     <div className={styles.bg}></div>
+    <div className={styles.bg1}></div>
     {arr}
     </>
   );
