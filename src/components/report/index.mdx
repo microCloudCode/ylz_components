@@ -23,9 +23,13 @@ import { Button } from "antd";
     const open = () => {
       reportRef.current.open(Data);
     };
+    const print=()=>{
+      reportRef.current.print(Data);
+    }
     return (
       <div>  
-        <Button onClick={open}>点击</Button>
+        <Button onClick={open}>预览</Button>
+        <Button onClick={print}>打印</Button>
         <Report ref={reportRef}
          coverUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm2.png"}
          footUrl={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm1.png"}   />

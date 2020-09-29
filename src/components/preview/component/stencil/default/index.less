@@ -5,8 +5,9 @@
 }
 
 // A4纸尺寸为210*297mm  A4 纸减去打印机固定边距
-@height: 297mm- (4.23mm * 2);
-@width: 210mm- (4.23mm * 2);
+@margin: 4.23mm;
+@height: 297mm- (@margin * 2);
+@width: 210mm- (@margin * 2);
 .A4 {
   background-color: #ffffff;
   height: @height;
@@ -21,18 +22,23 @@
   background: red;
 }
 
+/**
+*print打印BUG复现
+*当全幅打印时，多设置1mm导致分页错误
+*当运行在360极速浏览器时，如果已设置打印边距，高度应该减去相应边距，否则会导致边距错误
+**/
 @media print {
   .A4 {
     page-break-after: always;
     margin-bottom: 0;
-    // height: @height - 1mm; //当全幅打印时，多设置1mm导致分页错误
+    // height: @height - 1mm;
   }
 }
 
-/*纸张设置为宽1200px 高800px*/
 @page {
   size: A4;
-  margin: 4.23mm;
+  margin: @margin;
+  margin-bottom: 0;
 }
 
 // @media print {

@@ -70,15 +70,17 @@ export default ({ data, info }: Props) => {
         <div className={styles.boldText}>超声图像：</div>
         <div className={styles.imgList}>{imgList}</div>
       </div>}
-      {/* 描述 */}
-      <div className={styles.description}>
-        <div className={styles.boldText}>超声所见：</div>
-        <pre className={styles.pre}>{data.description}</pre>
-      </div>
-      {/* 诊断 */}
-      <div className={styles.say}>
-        <div className={styles.boldText}>超声提示：</div>
-        <pre className={styles.pre}>{data.say}</pre>
+      <div className={styles.box}>
+        {/* 描述 */}
+        <div className={styles.description}>
+          <div className={styles.boldText}>超声所见：</div>
+          <pre className={styles.pre}>{data.description}</pre>
+        </div>
+        {/* 诊断 */}
+        <div className={styles.say}>
+          <div className={styles.boldText}>超声提示：</div>
+          <pre className={styles.pre}>{data.say}</pre>
+        </div>
       </div>
       {/* 底部 */}
       <div className={styles.foot}>
