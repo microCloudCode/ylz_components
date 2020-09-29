@@ -612,7 +612,7 @@ var rotate = function rotate(img) {
   });
 };
 
-var css$7 = ".pos_item__3R7Pr {\n  transform: rotate(90deg);\n  transform-origin: 0 0;\n  position: absolute;\n}\n.pos_text__1Kwpz {\n  font-size: 8pt;\n  font-weight: 600;\n  color: #666;\n}\n.pos_img__25PlX {\n  width: 100pt;\n  height: 100pt;\n}\n.pos_bg__3-3cv {\n  position: absolute;\n  width: 12%;\n  height: 15%;\n  left: 82.6%;\n  top: 53%;\n  background-color: #fff;\n}\n.pos_bg1__1ePsi {\n  position: absolute;\n  width: 7.6%;\n  height: 10%;\n  background-color: fff;\n  left: 82.6%;\n  top: 44%;\n}\n";
+var css$7 = ".pos_item__3R7Pr {\n  transform: rotate(90deg);\n  transform-origin: 0 0;\n  position: absolute;\n}\n.pos_text__1Kwpz {\n  font-size: 8pt;\n  font-weight: 600;\n  color: #666;\n}\n.pos_img__25PlX {\n  width: 100pt;\n  height: 100pt;\n}\n.pos_bg__3-3cv {\n  position: absolute;\n  width: 12%;\n  height: 15%;\n  left: 82.6%;\n  top: 53%;\n  background-color: #ffffff;\n}\n.pos_bg1__1ePsi {\n  position: absolute;\n  width: 7.6%;\n  height: 10%;\n  background-color: #ffffff;\n  left: 82.6%;\n  top: 44%;\n}\n";
 var styles$6 = {"item":"pos_item__3R7Pr","text":"pos_text__1Kwpz","img":"pos_img__25PlX","bg":"pos_bg__3-3cv","bg1":"pos_bg1__1ePsi"};
 styleInject(css$7);
 
