@@ -93,22 +93,22 @@ let test1 = Array(10).fill({
     author: '李怕怕',
   },
 });
-test1.push({
-  type: ComponentType.Img,
-  isPrint: true, //是否打印
-  isNewPage: true,
-  isHideHeader:true,
-  data: {
-    src: "http://localhost/resources/test.png",
-    isRotate: true,
-    pos: [{
-      type: PosType.Text,
-      data: "1：心电图",
-      x: 89,
-      y: 55.5
-    }]
-  },
-});
+// test1.push({
+//   type: ComponentType.Img,
+//   isPrint: true, //是否打印
+//   isNewPage: true,
+//   isHideHeader:true,
+//   data: {
+//     src: "http://localhost/resources/test.png",
+//     isRotate: true,
+//     pos: [{
+//       type: PosType.Text,
+//       data: "1：心电图",
+//       x: 89,
+//       y: 55.5
+//     }]
+//   },
+// });
 test1.push({
   type: ComponentType.Report,
   isPrint: true, //是否打印
