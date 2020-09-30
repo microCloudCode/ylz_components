@@ -70,6 +70,7 @@ export default ({ data, info }: Props) => {
         <div className={styles.boldText}>超声图像：</div>
         <div className={styles.imgList}>{imgList}</div>
       </div>}
+      {/* 结论 */}
       <div className={styles.box}>
         {/* 描述 */}
         <div className={styles.description}>
