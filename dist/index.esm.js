@@ -194,7 +194,7 @@ var css = ".index_body__3JAOh {\n  overflow: hidden;\n}\n.index_hide__3iZps {\n 
 var styles = {"body":"index_body__3JAOh","hide":"index_hide__3iZps","printWindows":"index_printWindows__3Ed8x"};
 styleInject(css);
 
-var css$1 = ".index_cover__13mu8 {\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n}\n.index_A4__3Xbf0 {\n  background-color: #ffffff;\n  height: 288.54mm;\n  width: 201.54mm;\n  overflow: hidden;\n  margin-bottom: 10px;\n  display: flex;\n  flex-direction: column;\n}\n.index_row__ZqPFq {\n  background: red;\n}\n/**\n*print打印BUG复现\n*当全幅打印时，多设置1mm导致分页错误\n**/\n@media print {\n  .index_A4__3Xbf0 {\n    page-break-after: always;\n    margin-bottom: 0;\n  }\n}\n@page {\n  size: A4;\n  margin: 4.23mm;\n  margin-bottom: 0;\n}\n";
+var css$1 = ".index_cover__13mu8 {\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n}\n.index_A4__3Xbf0 {\n  background-color: #ffffff;\n  height: 288.54mm;\n  width: 201.54mm;\n  overflow: hidden;\n  margin-bottom: 10px;\n  display: flex;\n  flex-direction: column;\n}\n.index_row__ZqPFq {\n  background: red;\n}\n/**\n*print打印BUG复现\n*当全幅打印时，多设置1mm导致分页错误\n**/\n@media print {\n  .index_A4__3Xbf0 {\n    page-break-after: always;\n    margin-bottom: 0;\n  }\n}\n@page {\n  size: A4;\n  margin: 4.23mm;\n  margin-bottom: 0;\n  :left {\n    margin: 4.23mm;\n    margin-bottom: 0;\n  }\n  :right {\n    margin: 4.23mm;\n    margin-bottom: 0;\n  }\n}\n";
 var styles$1 = {"cover":"index_cover__13mu8","A4":"index_A4__3Xbf0","row":"index_row__ZqPFq"};
 styleInject(css$1);
 
