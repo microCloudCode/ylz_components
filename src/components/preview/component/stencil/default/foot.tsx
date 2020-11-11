@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styles from './foot.less';
 import { FootDataModelState } from '../../../type';
 import foot_2 from '../../../../../assets/foot_2.png';
+import { StencilContext } from '../../../index';
+
 interface Props {
   Data: FootDataModelState;
-  footUrl: string
 }
 
-export default ({ Data, footUrl }: Props) => {
+export default ({ Data }: Props) => {
+  const { footUrl } = useContext(StencilContext);
   const info = Data.info.map((e, i) => {
     return (
       <div key={i} className={styles.body_info_item}>
@@ -27,7 +29,6 @@ export default ({ Data, footUrl }: Props) => {
           className={styles.body_bg_1}
         />
         <img
-          // src={"http://xm.gwtj.net:8888/upload/temp/tjbg_fm1.png"}
           src={footUrl}
           // crossOrigin="anonymous"
           className={styles.body_bg_2}

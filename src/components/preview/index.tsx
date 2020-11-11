@@ -12,6 +12,11 @@ import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import { usePromise } from './hook';
 
+export const StencilContext = React.createContext({
+  coverUrl: "",
+  footUrl: ""
+});
+
 /**
  * 预览组件
  */
@@ -94,11 +99,11 @@ export default memo(forwardRef<PreviewRef, Props>(
       pdf: async () => {
         const key = 'pdf';
         message.loading({ content: '生成中...', key });
-        try{
+        try {
           await pagePromise.promise;
           await handlePdf();
           message.success({ content: '成功!', key, duration: 2 });
-        }catch(err){
+        } catch (err) {
           message.error({ content: '错误!', key, duration: 2 });
         }
       },
@@ -140,15 +145,15 @@ export default memo(forwardRef<PreviewRef, Props>(
         className={`${styles.body} ${hideRender ? styles.hide : ''}`}
         ref={divRef}
       >
-        {/* 通过Type选择渲染组件 */}
-        <Stencil
-          Data={data}
-          type={StencilType.Default}
-          onLoad={load}
-          onError={error}
-          coverUrl={coverUrl}
-          footUrl={footUrl}
-        />
+        <StencilContext.Provider value={{ coverUrl, footUrl }}>
+          {/* 通过Type选择渲染组件 */}
+          <Stencil
+            Data={data}
+            type={StencilType.Default}
+            onLoad={load}
+            onError={error}
+          />
+        </StencilContext.Provider>
       </div>
     );
   },

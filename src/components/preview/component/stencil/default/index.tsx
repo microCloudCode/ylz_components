@@ -1,14 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import styles from './index.less';
 import Cover from './cover';
 import { PrintDataModelState } from '../../../type';
 import Page from './page';
 import Foot from './foot';
+import { StencilContext } from '../../../index';
 
 interface Props {
   Data: PrintDataModelState;
-  coverUrl: string;
-  footUrl: string;
   onLoad?: () => void;
   onError?: () => void;
 }
@@ -16,7 +15,8 @@ interface Props {
 /**
  * 默认的渲染模版
  */
-export default ({ Data, coverUrl, footUrl, onLoad, onError }: Props) => {
+export default ({ Data, onLoad, onError }: Props) => {
+  const { coverUrl } = useContext(StencilContext);
   return (
     <>
       {/* 封面 */}
@@ -27,7 +27,7 @@ export default ({ Data, coverUrl, footUrl, onLoad, onError }: Props) => {
       <Page Data={Data} onLoad={() => onLoad && onLoad()} onError={() => onError && onError()} />
       {/* 尾页 */}
       <div className={`${styles.A4}`}>
-        <Foot Data={Data.foot} footUrl={footUrl} />
+        <Foot Data={Data.foot} />
       </div>
     </>
   );
