@@ -1,5 +1,9 @@
 import React from 'react';
 import { PrintDataModelState } from './type';
+export declare const StencilContext: React.Context<{
+    coverUrl: string;
+    footUrl: string;
+}>;
 /**
  * 预览组件
  */

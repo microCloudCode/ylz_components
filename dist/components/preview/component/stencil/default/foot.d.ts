@@ -2,7 +2,6 @@
 import { FootDataModelState } from '../../../type';
 interface Props {
     Data: FootDataModelState;
-    footUrl: string;
 }
-declare const _default: ({ Data, footUrl }: Props) => JSX.Element;
+declare const _default: ({ Data }: Props) => JSX.Element;
 export default _default;
