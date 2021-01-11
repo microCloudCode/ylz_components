@@ -50,7 +50,7 @@ const getSrc = (url: string, rot: number): Promise<string> => {
 
 
 // 旋转
-const rotate = function (img: HTMLImageElement, rot = 0, res: (value?: string) => void) {
+const rotate = function (img: HTMLImageElement, rot = 0, res: (value: string | PromiseLike<string>) => void) {
   const canvas = document.createElement("canvas")
   //获取图片的高宽
   let w = img.width;
